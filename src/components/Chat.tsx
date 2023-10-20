@@ -8,6 +8,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 
 type ChatProps = {
   promoData?: CampaignData | DownloadableCampaignStats;
@@ -95,23 +96,10 @@ export function Chat({
             <p className="text-lg font-semibold">{`💬 Chatting with ${agentName}`}</p>
             <button
               id="close-chat"
-              className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none"
+              className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-90"
               onClick={() => setIsPromoChatButtonClicked(false)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
+              <XMarkIcon className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-90" />
             </button>
           </div>
           <div id="chatbox" className="h-80 overflow-y-auto p-4">
