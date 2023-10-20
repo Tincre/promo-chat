@@ -6,7 +6,7 @@
  */
 
 import React, { useState, useRef, useEffect } from 'react';
-import { CampaignData } from '../lib/types';
+import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 
 export function Chat({
   promoData,
@@ -15,11 +15,11 @@ export function Chat({
   agentName = 'Sym',
   inputMessagePlaceholder = 'How do I run ads?',
 }: {
-  promoData?: CampaignData;
-  apiRoute: string;
-  startingAgentMessage: string;
-  agentName: string;
-  inputMessagePlaceholder: string;
+  promoData?: CampaignData | DownloadableCampaignStats;
+  apiRoute?: string;
+  startingAgentMessage?: string;
+  agentName?: string;
+  inputMessagePlaceholder?: string;
 }) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
     useState(false);
