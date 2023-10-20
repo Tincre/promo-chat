@@ -5,7 +5,20 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-export interface CampaignMetadata {
+export type DownloadableCampaignStats = {
+  updatedTime: (string | null)[];
+  spend?: (number | string | null)[];
+  reach?: (number | string | null)[];
+  views?: (number | string | null)[];
+  clicks?: (number | string | null)[];
+  cpc?: (number | string | null)[];
+  cpm?: (number | string | null)[];
+  ctr?: (number | string | null)[];
+  cpv?: (number | string | null)[];
+  pid: (string | null)[];
+};
+
+export type CampaignMetadata = {
   pid?: string;
   email?: string;
   adTitle?: string;
@@ -22,7 +35,7 @@ export interface CampaignMetadata {
   isFlat?: boolean;
   usageFee?: string | number;
   startDate?: string;
-}
+};
 
 export interface PromoApiCampaignStatsSample {
   updatedTime?: string;
