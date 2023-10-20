@@ -1,3 +1,10 @@
+/* Copyright Tincre (Musicfox, Inc)
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 export interface CampaignMetadata {
   pid?: string;
   email?: string;
@@ -35,6 +42,16 @@ export interface PromoApiCampaignStatsData {
   google?: PromoApiCampaignStatsSample[];
   meta?: PromoApiCampaignStatsSample[];
 }
+export type CampaignMetrics =
+  | 'Spend'
+  | 'Clicks'
+  | 'Views'
+  | 'Reach'
+  | 'CPM'
+  | 'CTR'
+  | 'CPC'
+  | 'CPV'
+  | string;
 
 export interface CampaignStatsData {
   id: number | undefined;
