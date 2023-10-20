@@ -9,19 +9,20 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
 
+type ChatProps = {
+  promoData?: CampaignData | DownloadableCampaignStats;
+  apiRoute?: string;
+  startingAgentMessage?: string;
+  agentName?: string;
+  inputMessagePlaceholder?: string;
+};
 export function Chat({
   promoData,
   apiRoute = '/api/chat',
   startingAgentMessage = '👋 What can I help you with?',
   agentName = 'Sym',
   inputMessagePlaceholder = 'How do I run ads?',
-}: {
-  promoData?: CampaignData | DownloadableCampaignStats;
-  apiRoute?: string;
-  startingAgentMessage?: string;
-  agentName?: string;
-  inputMessagePlaceholder?: string;
-}) {
+}: ChatProps) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
     useState(false);
   const [latestMessages, setLatestMessages] = useState([
@@ -42,7 +43,7 @@ export function Chat({
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [latestMessages]);
   useEffect(() => {
-    if (typeof latestMessage !== 'undefined' && wasSubmitButtonClicked) {
+    if (latestMessage && wasSubmitButtonClicked) {
       setLatestMessages([
         ...latestMessages,
         {
@@ -166,6 +167,7 @@ export function Chat({
               type="button"
               ref={submitButtonRef}
               onClick={async (event) => {
+                event.preventDefault();
                 try {
                   setWasSubmitButtonClicked(true);
                   setIsWaitingOnResponse(true);
