@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import { MouseEvent, useState, useRef, useEffect } from 'react';
 import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
@@ -70,6 +70,48 @@ export function Chat({
       ]);
     }
   }, [latestResponse, isWaitingOnResponse]);
+  /**
+   * @description Handle the chat 'submit' button press or click. This function
+   * generally sets a waiting response flag so that the UI can update to
+   * demonstrate that the event was received and we're waiting for a
+   * response.
+   *
+   * In addition, this function calls the actual backend at the given `apiRoute`
+   * prop value with a POST request and body payload
+   * `{ message: '', userId: '' }`.
+   * Lastly, this function resets the `latestValue` internal state prop
+   * which the UI uses to display prior to users seeing their input text.
+   *
+   * @param {MouseEvent<HTMLButtonElement>} event from the onClick prop
+   *
+   * @returns void
+   */
+  const handleChatButtonSubmit = async (
+    event: MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+    try {
+      setWasSubmitButtonClicked(true);
+      setIsWaitingOnResponse(true);
+      const response = await fetch(apiRoute, {
+        method: 'POST',
+        body: JSON.stringify({
+          message: latestMessage,
+          promoData: promoData || {},
+          userId: userId,
+        }),
+        headers: { 'Content-type': 'application/json' },
+      });
+      const responseData = await response.json();
+      setLatestResponse(responseData?.message);
+      setUserId(responseData?.userId);
+      setIsWaitingOnResponse(false);
+      setLatestMessage('');
+      submitButtonRef.current?.blur();
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <button
@@ -154,30 +196,7 @@ export function Chat({
             <button
               type="button"
               ref={submitButtonRef}
-              onClick={async (event) => {
-                event.preventDefault();
-                try {
-                  setWasSubmitButtonClicked(true);
-                  setIsWaitingOnResponse(true);
-                  const response = await fetch(apiRoute, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                      message: latestMessage,
-                      promoData: promoData || {},
-                      userId: userId,
-                    }),
-                    headers: { 'Content-type': 'application/json' },
-                  });
-                  const responseData = await response.json();
-                  setLatestResponse(responseData?.message);
-                  setUserId(responseData?.userId);
-                  setIsWaitingOnResponse(false);
-                  setLatestMessage('');
-                  submitButtonRef.current?.blur();
-                } catch (error) {
-                  console.error(error);
-                }
-              }}
+              onClick={handleChatButtonSubmit}
               className="mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-auto sm:flex-row"
             >
               Submit
