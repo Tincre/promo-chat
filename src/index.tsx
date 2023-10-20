@@ -5,10 +5,22 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import { useState, useEffect, MouseEvent } from 'react';
+import { Chat } from './components/Chat';
+import {
+  CampaignData,
+  CampaignMetadata,
+  PromoApiCampaignStatsData,
+  PromoApiCampaignStatsSample,
+  CampaignStatsData,
+  CampaignMetrics,
+} from './lib/types';
 
-export function PromoChat({}): {} {
-  return <></>;
-}
-export {};
-export type {};
+export { Chat as PromoChat };
+export type {
+  CampaignData,
+  CampaignMetadata,
+  PromoApiCampaignStatsData,
+  PromoApiCampaignStatsSample,
+  CampaignStatsData,
+  CampaignMetrics,
+};
