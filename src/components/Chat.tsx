@@ -70,7 +70,7 @@ export function Chat({
   return (
     <>
       <button
-        className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200"
+        className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
         title={`Chat with ${agentName}`}
         onClick={() => setIsPromoChatButtonClicked(true)}
       >
@@ -79,7 +79,7 @@ export function Chat({
       {isPromoChatButtonClicked ? (
         <div
           id="promo-chat-container"
-          className="fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96"
+          className="fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96 z-90"
         >
           <div className="w-full max-w-lg rounded-lg bg-white shadow-md">
             <div className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white">
