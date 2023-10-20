@@ -36,6 +36,11 @@ export function Chat({
   const submitButtonRef = useRef(null);
   const [isWaitingOnResponse, setIsWaitingOnResponse] = useState(false);
   const [userId, setUserId] = useState<string | undefined>(undefined);
+  const messagesEndRef = useRef(null);
+  useEffect(() => {
+    // @ts-ignore https://github.com/microsoft/TypeScript/issues/11498
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [latestMessages]);
   useEffect(() => {
     if (typeof latestMessage !== 'undefined' && wasSubmitButtonClicked) {
       setLatestMessages([
@@ -127,6 +132,7 @@ export function Chat({
                   </div>
                 );
               })}
+              <div ref={messagesEndRef} />
             </div>
             <div className="flex flex-col items-center border-t px-3 py-4 sm:flex-row">
               <div className="w-full sm:max-w-xs">
