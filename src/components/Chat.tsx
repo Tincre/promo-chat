@@ -33,12 +33,11 @@ export function Chat({
     undefined
   );
   const [wasSubmitButtonClicked, setWasSubmitButtonClicked] = useState(false);
-  const submitButtonRef = useRef(null);
+  const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const [isWaitingOnResponse, setIsWaitingOnResponse] = useState(false);
   const [userId, setUserId] = useState<string | undefined>(undefined);
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    // @ts-ignore https://github.com/microsoft/TypeScript/issues/11498
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [latestMessages]);
   useEffect(() => {
@@ -176,8 +175,7 @@ export function Chat({
                     setUserId(responseData?.userId);
                     setIsWaitingOnResponse(false);
                     setLatestMessage('');
-                    // @ts-ignore https://github.com/microsoft/TypeScript/issues/11498
-                    submitButtonRef.current.blur();
+                    submitButtonRef.current?.blur();
                   } catch (error) {
                     console.error(error);
                   }
