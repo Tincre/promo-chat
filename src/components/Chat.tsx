@@ -16,6 +16,7 @@ import {
 import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
+import { Messages, MessageType } from './Messages';
 
 type ChatProps = {
   promoData?: CampaignData | DownloadableCampaignStats;
@@ -33,7 +34,7 @@ export function Chat({
 }: ChatProps) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
     useState(false);
-  const [latestMessages, setLatestMessages] = useState([
+  const [latestMessages, setLatestMessages] = useState<MessageType[]>([
     { message: startingAgentMessage, role: 'assistant' },
   ]);
   const [latestMessage, setLatestMessage] = useState<string | undefined>(
@@ -217,31 +218,7 @@ export function Chat({
             </button>
           </div>
           <div id="chatbox" className="h-80 overflow-y-auto p-4">
-            {latestMessages.map((messagePackage, index) => {
-              const lastIndex = latestMessages.length - 1;
-              const { message, role } = messagePackage;
-              return role === 'user' ? (
-                <div
-                  key={`user-message-${index}`}
-                  className="mb-2 text-right"
-                  id={`user-message-${index}`}
-                >
-                  <p className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white">
-                    {message}
-                  </p>
-                </div>
-              ) : (
-                <div
-                  key={`assistant-message-${index}`}
-                  className="mb-2"
-                  id={`assistant-message-${index}`}
-                >
-                  <p className="inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700">
-                    {message}
-                  </p>
-                </div>
-              );
-            })}
+            <Messages latestMessages={latestMessages} />
             <div ref={messagesEndRef} />
           </div>
           <div className="flex flex-col items-center border-t px-3 py-4 sm:flex-row">
