@@ -164,35 +164,28 @@ export function Chat({
       userInputRef.current?.focus();
     }
   };
+  const handleCloseChatWindowEscape = async (
+    event: KeyboardEvent<HTMLDivElement>
+  ) => {
+    event.preventDefault();
+    if (event.key === 'Escape') {
+      setIsPromoChatButtonClicked(false);
+    }
+  };
   return (
     <>
-      {isPromoChatButtonClicked !== true ? (
-        <button
-          tabIndex={1}
-          className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
-          title={`Chat with ${agentName}`}
-          onClick={() => {
-            setIsPromoChatButtonClicked(true);
-            userInputRef.current?.focus();
-          }}
-          onKeyDown={handleChatButtonEnter}
-        >
-          👋
-        </button>
-      ) : (
-        <button
-          tabIndex={undefined}
-          className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
-          title={`Chat with ${agentName}`}
-          onClick={() => {
-            setIsPromoChatButtonClicked(true);
-            userInputRef.current?.focus();
-          }}
-          onKeyDown={handleChatButtonEnter}
-        >
-          👋
-        </button>
-      )}
+      <button
+        tabIndex={1}
+        className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
+        title={`Chat with ${agentName}`}
+        onClick={() => {
+          setIsPromoChatButtonClicked(true);
+          userInputRef.current?.focus();
+        }}
+        onKeyDown={handleChatButtonEnter}
+      >
+        👋
+      </button>
       <Transition
         show={isPromoChatButtonClicked}
         as="div"
@@ -205,7 +198,10 @@ export function Chat({
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="w-full max-w-lg rounded-lg bg-white shadow-md">
+        <div
+          className="w-full max-w-lg rounded-lg bg-white shadow-md"
+          onKeyDown={handleCloseChatWindowEscape}
+        >
           <div className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white">
             <p className="text-lg font-semibold">{`💬 Chatting with ${agentName}`}</p>
             <button
