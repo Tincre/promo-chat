@@ -5,7 +5,14 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import { MouseEvent, useState, useRef, useEffect } from 'react';
+import {
+  MouseEvent,
+  ChangeEvent,
+  KeyboardEvent,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
@@ -82,12 +89,12 @@ export function Chat({
    * Lastly, this function resets the `latestValue` internal state prop
    * which the UI uses to display prior to users seeing their input text.
    *
-   * @param {MouseEvent<HTMLButtonElement>} event from the onClick prop
+   * @param {MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLInputElement>} event from the onClick prop
    *
    * @returns void
    */
-  const handleChatButtonSubmit = async (
-    event: MouseEvent<HTMLButtonElement>
+  const handleChatSubmit = async (
+    event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
     try {
@@ -110,6 +117,30 @@ export function Chat({
       submitButtonRef.current?.blur();
     } catch (error) {
       console.error(error);
+    }
+  };
+  /**
+   * @description A handler for the user input text field.
+   *
+   * @param {ChangeEvent<HTMLInputElement>} event the input change event
+   *
+   * @returns void
+   */
+  const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    setLatestMessage(event.target.value);
+  };
+  /**
+   * @description A handler for the user input enter key press on the input
+   * field.
+   *
+   * @param {KeyboardEvent<HTMLInputElement>} event the input keyboard 'Enter'
+   * press.
+   *
+   * @returns void
+   */
+  const handleInputEnter = async (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleChatSubmit(event);
     }
   };
   return (
@@ -188,15 +219,14 @@ export function Chat({
                     ? inputMessagePlaceholder
                     : inputMessagePlaceholder || 'How are my ads doing today?'
                 }
-                onChange={(event) => {
-                  setLatestMessage(event.target.value);
-                }}
+                onChange={handleInputChange}
+                onKeyDown={handleInputEnter}
               />
             </div>
             <button
               type="button"
               ref={submitButtonRef}
-              onClick={handleChatButtonSubmit}
+              onClick={handleChatSubmit}
               className="mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-auto sm:flex-row"
             >
               Submit
