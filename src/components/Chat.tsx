@@ -43,12 +43,15 @@ export function Chat({
     undefined
   );
   const [wasSubmitButtonClicked, setWasSubmitButtonClicked] = useState(false);
-  const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const [isWaitingOnResponse, setIsWaitingOnResponse] = useState(false);
   const [userId, setUserId] = useState<string | undefined>(undefined);
+  const submitButtonRef = useRef<HTMLButtonElement | null>(null);
+  const userInputRef = useRef<HTMLInputElement | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setLatestMessage('');
   }, [latestMessages]);
   useEffect(() => {
     if (latestMessage && wasSubmitButtonClicked) {
@@ -61,6 +64,7 @@ export function Chat({
       ]);
     }
   }, [latestMessage, wasSubmitButtonClicked]);
+
   useEffect(() => {
     if (isWaitingOnResponse) {
       setWasSubmitButtonClicked(false);
@@ -99,6 +103,8 @@ export function Chat({
     event.preventDefault();
     try {
       setWasSubmitButtonClicked(true);
+      submitButtonRef.current?.blur();
+      userInputRef.current?.blur();
       setIsWaitingOnResponse(true);
       const response = await fetch(apiRoute, {
         method: 'POST',
@@ -113,8 +119,6 @@ export function Chat({
       setLatestResponse(responseData?.message);
       setUserId(responseData?.userId);
       setIsWaitingOnResponse(false);
-      setLatestMessage('');
-      submitButtonRef.current?.blur();
     } catch (error) {
       console.error(error);
     }
@@ -211,6 +215,7 @@ export function Chat({
               <input
                 type="text"
                 name="text-input"
+                ref={userInputRef}
                 id="text-input"
                 value={latestMessage}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
