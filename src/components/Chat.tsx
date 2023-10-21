@@ -80,7 +80,13 @@ export function Chat({
         },
       ]);
     }
+    if (isWaitingOnResponse && latestResponse) {
+      userInputRef.current?.focus();
+    }
   }, [latestResponse, isWaitingOnResponse]);
+  useEffect(() => {
+    if (isPromoChatButtonClicked === true) userInputRef.current?.focus();
+  }, [isPromoChatButtonClicked]);
   /**
    * @description Handle the chat 'submit' button press or click. This function
    * generally sets a waiting response flag so that the UI can update to
@@ -119,6 +125,7 @@ export function Chat({
       setLatestResponse(responseData?.message);
       setUserId(responseData?.userId);
       setIsWaitingOnResponse(false);
+      userInputRef.current?.focus();
     } catch (error) {
       console.error(error);
     }
@@ -147,15 +154,44 @@ export function Chat({
       handleChatSubmit(event);
     }
   };
+  const handleChatButtonEnter = async (
+    event: KeyboardEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+      setIsPromoChatButtonClicked(true);
+      userInputRef.current?.focus();
+    }
+  };
   return (
     <>
-      <button
-        className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
-        title={`Chat with ${agentName}`}
-        onClick={() => setIsPromoChatButtonClicked(true)}
-      >
-        👋
-      </button>
+      {isPromoChatButtonClicked !== true ? (
+        <button
+          tabIndex={1}
+          className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
+          title={`Chat with ${agentName}`}
+          onClick={() => {
+            setIsPromoChatButtonClicked(true);
+            userInputRef.current?.focus();
+          }}
+          onKeyDown={handleChatButtonEnter}
+        >
+          👋
+        </button>
+      ) : (
+        <button
+          tabIndex={undefined}
+          className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
+          title={`Chat with ${agentName}`}
+          onClick={() => {
+            setIsPromoChatButtonClicked(true);
+            userInputRef.current?.focus();
+          }}
+          onKeyDown={handleChatButtonEnter}
+        >
+          👋
+        </button>
+      )}
       <Transition
         show={isPromoChatButtonClicked}
         as="div"
@@ -173,7 +209,8 @@ export function Chat({
             <p className="text-lg font-semibold">{`💬 Chatting with ${agentName}`}</p>
             <button
               id="close-chat"
-              className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-90"
+              className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-90"
+              tabIndex={4}
               onClick={() => setIsPromoChatButtonClicked(false)}
             >
               <XMarkIcon className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-90" />
@@ -213,8 +250,10 @@ export function Chat({
                 Text input
               </label>
               <input
+                tabIndex={2}
                 type="text"
                 name="text-input"
+                autoFocus={true}
                 ref={userInputRef}
                 id="text-input"
                 value={latestMessage}
@@ -229,6 +268,7 @@ export function Chat({
               />
             </div>
             <button
+              tabIndex={3}
               type="button"
               ref={submitButtonRef}
               onClick={handleChatSubmit}
