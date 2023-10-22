@@ -107,7 +107,6 @@ export function Chat({
   const handleChatSubmit = async (
     event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLInputElement>
   ) => {
-    event.preventDefault();
     try {
       setWasSubmitButtonClicked(true);
       submitButtonRef.current?.blur();
@@ -139,6 +138,7 @@ export function Chat({
    * @returns void
    */
   const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    console.log(`handleInputChange::event fired`);
     setLatestMessage(event.target.value);
   };
   /**
@@ -158,7 +158,6 @@ export function Chat({
   const handleChatButtonEnter = async (
     event: KeyboardEvent<HTMLButtonElement>
   ) => {
-    event.preventDefault();
     if (event.key === 'Enter') {
       setIsPromoChatButtonClicked(true);
       userInputRef.current?.focus();
@@ -167,7 +166,6 @@ export function Chat({
   const handleCloseChatWindowEscape = async (
     event: KeyboardEvent<HTMLDivElement>
   ) => {
-    event.preventDefault();
     if (event.key === 'Escape') {
       setIsPromoChatButtonClicked(false);
     }
@@ -197,11 +195,9 @@ export function Chat({
         leave="transition-opacity duration-300"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
+        onKeyDown={handleCloseChatWindowEscape}
       >
-        <div
-          className="w-full max-w-lg rounded-lg bg-white shadow-md"
-          onKeyDown={handleCloseChatWindowEscape}
-        >
+        <div className="w-full max-w-lg rounded-lg bg-white shadow-md">
           <div className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white">
             <p className="text-lg font-semibold">{`💬 Chatting with ${agentName}`}</p>
             <button
