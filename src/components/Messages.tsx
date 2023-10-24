@@ -21,7 +21,7 @@ export function Messages({ latestMessages }: MessagesProps) {
           <div
             key={`user-message-${index}`}
             className="mb-2 text-right"
-            id={`user-message-${index}`}
+            id={`promo-chat-user-message-${index}`}
           >
             <p className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white">
               {message}
@@ -31,7 +31,7 @@ export function Messages({ latestMessages }: MessagesProps) {
           <div
             key={`assistant-message-${index}`}
             className="mb-2"
-            id={`assistant-message-${index}`}
+            id={`promo-chat-assistant-message-${index}`}
           >
             <p className="inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700">
               {message}
