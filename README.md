@@ -63,6 +63,26 @@ PROMO_CLIENT_SECRET=
 - Add environment variables to your deployment
 - Deploy!
 
+### Customize the look & feel
+
+Just add the following classes to your tailwindcss or regular css. If
+using tailwindcss, use an `@apply` directive.
+
+```
+#promo-chat-button-not-clicked
+#promo-chat-container
+#promo-chat-window-container
+#promo-chat-header-container
+#promo-chat-header-text
+#promo-chat-close-chat-button
+#promo-chat-close-chat-icon
+#promo-chat-latest-messages
+#promo-chat-input-container
+#promo-chat-input-only-container
+#promo-chat-text-input
+#promo-chat-input-submit-button
+```
+
 ## Support
 
 - Documentation: [tincre.dev/docs](https://tincre.dev/docs)
