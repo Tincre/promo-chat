@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import { Chat } from './components/Chat';
+import { Chat as PromoChat } from './components/Chat';
 import {
   CampaignData,
   CampaignMetadata,
@@ -15,7 +15,7 @@ import {
   CampaignMetrics,
 } from './lib/types';
 
-export { Chat as PromoChat };
+export { PromoChat };
 export type {
   CampaignData,
   CampaignMetadata,
