@@ -33,6 +33,25 @@ yarn add @tincre/promo-chat# -D if you want this as a dev dep
 npm install @tincre/promo-chat # --save-dev if you want it as a dev dep
 ```
 
+### Tailwindcss Setup
+
+Make sure you add to your `tailwind.config.js` configuration file a
+new element in the `content` property array.
+
+For example,
+
+```js
+content: [
+  './src/**/*.{js,jsx,ts,tsx}',
+  './src/*.{js,jsx,ts,tsx}',
+  './node_modules/@tincre/promo-button/**',
+  './node_modules/@tincre/promo-dashboard/**',
+  './node_modules/@tincre/promo-chat/**',
+],
+```
+
+> Your configuration file will likely look different from the above, depending on your source directories.
+
 ### Environment variables
 
 You'll need the following environment variables available in Node.js:
