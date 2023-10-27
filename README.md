@@ -81,6 +81,8 @@ using tailwindcss, use an `@apply` directive.
 #promo-chat-input-only-container
 #promo-chat-text-input
 #promo-chat-input-submit-button
+#promo-chat-user-message-display
+#promo-chat-assistant-message-display
 ```
 
 ## Support

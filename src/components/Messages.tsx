@@ -23,7 +23,10 @@ export function Messages({ latestMessages }: MessagesProps) {
             className="mb-2 text-right"
             id={`promo-chat-user-message-${index}`}
           >
-            <p className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white">
+            <p
+              id="promo-chat-user-message-display"
+              className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white"
+            >
               {message}
             </p>
           </div>
@@ -33,7 +36,10 @@ export function Messages({ latestMessages }: MessagesProps) {
             className="mb-2"
             id={`promo-chat-assistant-message-${index}`}
           >
-            <p className="inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700">
+            <p
+              id="promo-chat-assistant-message-display"
+              className="inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700"
+            >
               {message}
             </p>
           </div>
