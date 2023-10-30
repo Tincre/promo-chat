@@ -3,12 +3,14 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { PromoChat } from '../../../dist';
 import { useTour } from '@reactour/tour';
+import { useReCaptcha } from 'next-recaptcha-v3';
 
 const Home: NextPage = () => {
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] = useState(false);
   const [promoData, setPromoData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { setIsOpen } = useTour();
+  const { executeRecaptcha } = useReCaptcha();
   const handleRepeatButtonClick = (
     event: MouseEvent<HTMLButtonElement>,
     data: any
@@ -71,7 +73,7 @@ const Home: NextPage = () => {
               npm install @tincre/promo-dashboard
             </code>
           </p>
-          <PromoChat />
+          <PromoChat executeRecaptcha={executeRecaptcha} />
         </div>
       </main>
 
