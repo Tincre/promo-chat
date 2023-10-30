@@ -4,7 +4,7 @@
   "include": ["src", "types", "src/types/custom.d.ts"],
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["es2015", "DOM"],
+    "lib": ["es2020", "DOM"],
     "moduleResolution": "node"
   },
   "typeRoots": ["./node_modules/@types", "./src/types"]
