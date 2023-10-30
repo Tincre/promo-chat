@@ -49,7 +49,7 @@ export function Chat({
   const [wasSubmitButtonClicked, setWasSubmitButtonClicked] = useState(false);
   const [isWaitingOnResponse, setIsWaitingOnResponse] = useState(false);
   const [userId, setUserId] = useState<string | undefined>(undefined);
-  const [reponseError, setResponseError] = useState<string | undefined>(
+  const [responseError, setResponseError] = useState<string | undefined>(
     undefined
   );
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
