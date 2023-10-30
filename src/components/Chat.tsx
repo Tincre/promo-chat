@@ -17,7 +17,6 @@ import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
-import { useReCaptcha } from 'next-recaptcha-v3';
 
 type ChatProps = {
   promoData?: CampaignData | DownloadableCampaignStats;
@@ -25,7 +24,7 @@ type ChatProps = {
   startingAgentMessage?: string;
   agentName?: string;
   inputMessagePlaceholder?: string;
-  useRecaptcha?: boolean;
+  executeRecaptcha?: any;
 };
 export function Chat({
   promoData,
@@ -33,7 +32,7 @@ export function Chat({
   startingAgentMessage = '👋 What can I help you with?',
   agentName = 'Sym',
   inputMessagePlaceholder = 'How do I run ads?',
-  useRecaptcha = false,
+  executeRecaptcha = undefined,
 }: ChatProps) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
     useState(false);
@@ -55,7 +54,6 @@ export function Chat({
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const userInputRef = useRef<HTMLInputElement | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
-  const { executeRecaptcha } = useReCaptcha();
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -120,8 +118,9 @@ export function Chat({
       userInputRef.current?.blur();
       setIsWaitingOnResponse(true);
       let token;
-      if (useRecaptcha) {
+      if (typeof executeRecaptcha === 'function') {
         token = await executeRecaptcha('chat_submit');
+        console.debug(`handleChatSubmit::reCAPTCHA token: ${token}`);
       }
       const response = await fetch(apiRoute, {
         method: 'POST',
