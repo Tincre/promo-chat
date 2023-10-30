@@ -31,7 +31,10 @@
     "trailingComma": "es5"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "electron": "<rootDir>/mocks/next-recaptcha-v3-mocks.js"
+    }
   },
   "peerDependencies": {
     "@headlessui/react": "^1.7.17",
