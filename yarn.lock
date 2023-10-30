@@ -4950,6 +4950,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
+next-recaptcha-v3@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/next-recaptcha-v3/-/next-recaptcha-v3-1.2.0.tgz#57943be3d77a5195eb487d77e789d2339a28d88c"
+  integrity sha512-OghIhWetYHlCWLjp4dVq4G3Mx0bQ6hS9fCQi5KgkK4Hk788yP6mVoY8gy4dq7vKxkDoifkXIzS+jr29/RMsx9g==
+
 no-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.4.tgz#d361fd5c9800f558551a8369fc0dcd4662b6124d"
