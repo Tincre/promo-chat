@@ -56,21 +56,12 @@ content: [
 
 You'll need the following environment variables available in Node.js:
 
-- `PROMO_CLIENT_ID`
-- `PROMO_CLIENT_SECRET`
-- `PROMO_APP_ID`
-- `PROMO_API_KEY` (optional)
-
-These values can be found in the [Tincre.dev Dashboard](https://tincre.dev/dashboard)
-after you're logged in and have created at least one app.
+- `OPENAI_API_KEY`
 
 #### `.env.local` Example
 
 ```env
-PROMO_API_KEY=
-PROMO_CLIENT_ID=
-PROMO_APP_ID=
-PROMO_CLIENT_SECRET=
+OPENAI_API_KEY=blahblah
 ```
 
 ### Usage
@@ -81,6 +72,25 @@ PROMO_CLIENT_SECRET=
 - Add an environment file, e.g. .env.local
 - Add environment variables to your deployment
 - Deploy!
+
+### Backend functionality
+
+The backend path given should accept a POST request with a JSON body containing
+at least a `message` property.
+
+A full example:
+
+```js
+{
+  message: 'My user message',
+  promoData: {foo: bar, foo2: bar2},
+  userId: 'my-public-user-id',
+  token,
+}
+```
+
+> _Note: `token` above is only used if the `useRecaptcha` property on
+> `PromoChat` component rendering is `true`._
 
 ### Customize the look & feel
 
@@ -102,6 +112,7 @@ using tailwindcss, use an `@apply` directive.
 #promo-chat-input-submit-button
 #promo-chat-user-message-display
 #promo-chat-assistant-message-display
+#promo-chat-error-message-display
 ```
 
 ### Full CSS Customization Example
