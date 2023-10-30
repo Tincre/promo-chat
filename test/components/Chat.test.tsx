@@ -59,4 +59,19 @@ describe('Chat', () => {
     fireEvent.click(chatButton);
     expect(chatButton).toBeDefined();
   });
+  it('renders without crashing to test all props including token', () => {
+    render(
+      <Chat
+        apiRoute="/example"
+        startingAgentMessage="Hello test"
+        agentName="Test bot"
+        inputMessagePlaceholder="Is this a test?"
+        executeRecaptcha={(name: string) => name}
+      />
+    );
+    const chatButton = screen.getByRole('button');
+    expect(chatButton).toBeDefined();
+    fireEvent.click(chatButton);
+    expect(chatButton).toBeDefined();
+  });
 });
