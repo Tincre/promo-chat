@@ -24,6 +24,7 @@ type ChatProps = {
   startingAgentMessage?: string;
   agentName?: string;
   inputMessagePlaceholder?: string;
+  useRecaptcha?: boolean;
 };
 export function Chat({
   promoData,
@@ -31,6 +32,7 @@ export function Chat({
   startingAgentMessage = '👋 What can I help you with?',
   agentName = 'Sym',
   inputMessagePlaceholder = 'How do I run ads?',
+  useRecaptcha = false,
 }: ChatProps) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
     useState(false);
