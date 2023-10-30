@@ -7,12 +7,13 @@
 
 export type MessagesProps = {
   latestMessages: MessageType[];
+  responseError?: string;
 };
 export type MessageType = {
   message: string;
   role: 'assistant' | 'system' | 'user';
 };
-export function Messages({ latestMessages }: MessagesProps) {
+export function Messages({ latestMessages, responseError }: MessagesProps) {
   return (
     <>
       {latestMessages.map((messagePackage, index) => {
@@ -45,6 +46,20 @@ export function Messages({ latestMessages }: MessagesProps) {
           </div>
         );
       })}
+      typeof responseError !== 'undefined' ?{' '}
+      <div
+        key={`error-message`}
+        className="mb-2 text-right"
+        id={`promo-chat-error-message`}
+      >
+        <p
+          id="promo-chat-user-message-display"
+          className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white"
+        >
+          {`⚠️ ${responseError} ⚠️`}
+        </p>
+      </div>
+      : null
     </>
   );
 }
