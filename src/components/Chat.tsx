@@ -49,6 +49,9 @@ export function Chat({
   const [wasSubmitButtonClicked, setWasSubmitButtonClicked] = useState(false);
   const [isWaitingOnResponse, setIsWaitingOnResponse] = useState(false);
   const [userId, setUserId] = useState<string | undefined>(undefined);
+  const [reponseError, setResponseError] = useState<string | undefined>(
+    undefined
+  );
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const userInputRef = useRef<HTMLInputElement | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
@@ -131,6 +134,7 @@ export function Chat({
         headers: { 'Content-type': 'application/json' },
       });
       const responseData = await response.json();
+      setResponseError(responseData?.error);
       setLatestResponse(responseData?.message);
       setUserId(responseData?.userId);
       setIsWaitingOnResponse(false);
@@ -235,7 +239,10 @@ export function Chat({
             className="h-80 overflow-y-auto p-4"
             id="promo-chat-latest-messages"
           >
-            <Messages latestMessages={latestMessages} />
+            <Messages
+              latestMessages={latestMessages}
+              responseError={responseError}
+            />
             <div ref={messagesEndRef} />
           </div>
           <div
