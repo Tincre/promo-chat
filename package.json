@@ -41,7 +41,7 @@
     "yup": ">=0.32"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "size-limit": [
     {
