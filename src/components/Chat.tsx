@@ -120,7 +120,6 @@ export function Chat({
       let token;
       if (typeof executeRecaptcha === 'function') {
         token = await executeRecaptcha('chat_submit');
-        console.debug(`handleChatSubmit::reCAPTCHA token: ${token}`);
       }
       const response = await fetch(apiRoute, {
         method: 'POST',
