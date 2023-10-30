@@ -17,6 +17,7 @@ import { CampaignData, DownloadableCampaignStats } from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
+import { useReCaptcha } from 'next-recaptcha-v3';
 
 type ChatProps = {
   promoData?: CampaignData | DownloadableCampaignStats;
@@ -51,6 +52,7 @@ export function Chat({
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const userInputRef = useRef<HTMLInputElement | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const { executeRecaptcha } = useReCaptcha();
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -114,12 +116,17 @@ export function Chat({
       submitButtonRef.current?.blur();
       userInputRef.current?.blur();
       setIsWaitingOnResponse(true);
+      let token;
+      if (useRecaptcha) {
+        token = await executeRecaptcha('chat_submit');
+      }
       const response = await fetch(apiRoute, {
         method: 'POST',
         body: JSON.stringify({
           message: latestMessage,
           promoData: promoData || {},
           userId: userId,
+          token,
         }),
         headers: { 'Content-type': 'application/json' },
       });
