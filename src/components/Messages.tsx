@@ -53,7 +53,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
         id={`promo-chat-error-message`}
       >
         <p
-          id="promo-chat-user-message-display"
+          id="promo-chat-error-message-display"
           className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white"
         >
           {`⚠️ ${responseError} ⚠️`}
