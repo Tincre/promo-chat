@@ -13,13 +13,21 @@ import {
   useRef,
   useEffect,
 } from 'react';
-import { CampaignData, DownloadableCampaignStats } from '../lib/types';
+import {
+  CampaignData,
+  DownloadableCampaignStats,
+  DownloadableCampaignMetadataSample,
+} from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
 
 type ChatProps = {
-  promoData?: CampaignData | DownloadableCampaignStats;
+  promoData?:
+    | CampaignData
+    | DownloadableCampaignStats
+    | DownloadableCampaignMetadataSample
+    | DownloadableCampaignMetadataSample[];
   apiRoute?: string;
   startingAgentMessage?: string;
   agentName?: string;
