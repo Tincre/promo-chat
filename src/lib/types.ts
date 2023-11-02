@@ -4,7 +4,34 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+export interface DownloadableCampaignStatsSample
+  extends PromoApiCampaignStatsSample {
+  pid: string;
+}
 
+export interface DownloadableCampaignMetadataSample
+  extends DownloadableCampaignStatsSample {
+  adTitle?: string;
+  budget?: number | string;
+  target?: string;
+  isActive?: boolean;
+  adCallToAction?: string;
+  buttonText?: string;
+  creativeUrl: string;
+}
+
+export interface PromoApiCampaignStatsSample {
+  updatedTime?: string;
+  updated_time?: string;
+  spend?: number | string | null;
+  reach?: number | string | null;
+  views?: number | string | null;
+  clicks?: number | string | null;
+  cpc?: number | string | null;
+  ctr?: number | string | null;
+  cpm?: number | string | null;
+  cpv?: number | string | null;
+}
 export type DownloadableCampaignStats = {
   updatedTime: (string | null)[];
   spend?: (number | string | null)[];
