@@ -32,7 +32,7 @@ type ChatProps = {
   startingAgentMessage?: string;
   agentName?: string;
   inputMessagePlaceholder?: string;
-  executeRecaptcha?: any;
+  executeRecaptcha?: (action: string) => Promise<string>;
 };
 export function Chat({
   promoData,
