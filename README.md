@@ -73,6 +73,24 @@ OPENAI_API_KEY=blahblah
 - Add environment variables to your deployment
 - Deploy!
 
+#### Usage example
+
+```jsx
+<PromoChat
+  promoData={undefined}
+  apiRoute="/api/sales"
+  inputMessagePlaceholder="What is my ad spend today?"
+  executeRecaptcha={executeRecaptcha}
+/>
+```
+
+Where `executeRecaptcha` is a function, e.g.
+
+```ts
+const executeRecaptcha = (actionName: string) =>
+  generateRecaptchaTokenString(actionName);
+```
+
 ### Backend functionality
 
 The backend path given should accept a POST request with a JSON body containing
