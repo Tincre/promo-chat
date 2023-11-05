@@ -13,6 +13,7 @@ import {
   PromoApiCampaignStatsSample,
   CampaignStatsData,
   CampaignMetrics,
+  DownloadableCampaignMetadataSample,
 } from './lib/types';
 
 export { PromoChat };
@@ -23,4 +24,5 @@ export type {
   PromoApiCampaignStatsSample,
   CampaignStatsData,
   CampaignMetrics,
+  DownloadableCampaignMetadataSample,
 };
