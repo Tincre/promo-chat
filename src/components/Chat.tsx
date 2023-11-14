@@ -17,6 +17,7 @@ import {
   CampaignData,
   DownloadableCampaignStats,
   DownloadableCampaignMetadataSample,
+  CampaignSortedData,
 } from '../lib/types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
@@ -27,7 +28,9 @@ type ChatProps = {
     | CampaignData
     | DownloadableCampaignStats
     | DownloadableCampaignMetadataSample
-    | DownloadableCampaignMetadataSample[];
+    | DownloadableCampaignMetadataSample[]
+    | CampaignSortedData
+    | CampaignSortedData[];
   apiRoute?: string;
   startingAgentMessage?: string;
   agentName?: string;
