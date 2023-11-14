@@ -14,6 +14,8 @@ import {
   CampaignStatsData,
   CampaignMetrics,
   DownloadableCampaignMetadataSample,
+  DownloadableCampaignStatsSample,
+  DownloadableCampaignStats,
 } from './lib/types';
 
 export { PromoChat };
@@ -25,4 +27,6 @@ export type {
   CampaignStatsData,
   CampaignMetrics,
   DownloadableCampaignMetadataSample,
+  DownloadableCampaignStatsSample,
+  DownloadableCampaignStats,
 };
