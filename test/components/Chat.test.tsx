@@ -66,7 +66,7 @@ describe('Chat', () => {
         startingAgentMessage="Hello test"
         agentName="Test bot"
         inputMessagePlaceholder="Is this a test?"
-        executeRecaptcha={(name: string) => name}
+        executeRecaptcha={async (name: string) => name}
       />
     );
     const chatButton = screen.getByRole('button');
