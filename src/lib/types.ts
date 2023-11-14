@@ -116,3 +116,10 @@ export interface CampaignData extends CampaignMetadata {
   stats?: CampaignStatsData[];
   data?: PromoApiCampaignStatsData;
 }
+
+export interface CampaignDummyData extends CampaignMetadata {
+  stats?: CampaignStatsData[];
+  data?: CampaignStatsData[];
+}
+
+export interface CampaignSortedData extends CampaignDummyData {}
