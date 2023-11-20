@@ -73,7 +73,10 @@ const Home: NextPage = () => {
               npm install @tincre/promo-dashboard
             </code>
           </p>
-          <PromoChat executeRecaptcha={executeRecaptcha} />
+          <PromoChat
+            executeRecaptcha={executeRecaptcha}
+            supportEmail="support@tincre.dev"
+          />
         </div>
       </main>
 
