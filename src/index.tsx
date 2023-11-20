@@ -6,29 +6,4 @@
  */
 
 import { Chat as PromoChat } from './components/Chat';
-import {
-  CampaignData,
-  CampaignMetadata,
-  PromoApiCampaignStatsData,
-  PromoApiCampaignStatsSample,
-  CampaignStatsData,
-  CampaignMetrics,
-  DownloadableCampaignMetadataSample,
-  DownloadableCampaignStatsSample,
-  DownloadableCampaignStats,
-  CampaignSortedData,
-} from './lib/types';
-
 export { PromoChat };
-export type {
-  CampaignData,
-  CampaignMetadata,
-  PromoApiCampaignStatsData,
-  PromoApiCampaignStatsSample,
-  CampaignStatsData,
-  CampaignMetrics,
-  DownloadableCampaignMetadataSample,
-  DownloadableCampaignStatsSample,
-  DownloadableCampaignStats,
-  CampaignSortedData,
-};
