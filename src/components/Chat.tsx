@@ -37,6 +37,7 @@ type ChatProps = {
   agentName?: string;
   inputMessagePlaceholder?: string;
   executeRecaptcha?: (action: string) => Promise<string>;
+  supportEmail?: string;
 };
 export function Chat({
   promoData,
@@ -45,6 +46,7 @@ export function Chat({
   agentName = 'Sym',
   inputMessagePlaceholder = 'How do I run ads?',
   executeRecaptcha = undefined,
+  supportEmail = undefined,
 }: ChatProps) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
     useState(false);
@@ -231,7 +233,7 @@ export function Chat({
           >
             <p className="text-lg font-semibold" id="promo-chat-header-text">
               {`💬 Chatting with ${agentName}`}
-              <BetaPill />
+              <BetaPill supportEmail={supportEmail} />
             </p>
             <button
               id="promo-chat-close-chat-button"
