@@ -24,13 +24,13 @@ Use your favorite package manager to rock installation of `promo-chat`.
 ### Yarn
 
 ```
-yarn add @tincre/promo-chat# -D if you want this as a dev dep
+yarn add @tincre/promo-chat@latest @tincre/promo-types@latest # -D if you want this as a dev dep
 ```
 
 ### Npm
 
 ```
-npm install @tincre/promo-chat # --save-dev if you want it as a dev dep
+npm install @tincre/promo-chat@latest @tincre/promo-types@latest # --save-dev if you want it as a dev dep
 ```
 
 ### Tailwindcss Setup
@@ -68,7 +68,6 @@ OPENAI_API_KEY=blahblah
 
 - Import the frontend component
 - Add backend functionality
-- Update the backend property in your frontend from 1
 - Add an environment file, e.g. .env.local
 - Add environment variables to your deployment
 - Deploy!
