@@ -67,6 +67,7 @@ describe('Chat', () => {
         agentName="Test bot"
         inputMessagePlaceholder="Is this a test?"
         executeRecaptcha={async (name: string) => name}
+        supportEmail="support@tincre.dev"
       />
     );
     const chatButton = screen.getByRole('button');
