@@ -4,6 +4,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export type MessagesProps = {
   latestMessages: MessageType[];
@@ -13,6 +15,7 @@ export type MessageType = {
   message: string;
   role: 'assistant' | 'system' | 'user';
 };
+
 export function Messages({ latestMessages, responseError }: MessagesProps) {
   return (
     <>
@@ -28,7 +31,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
               id="promo-chat-user-message-display"
               className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white"
             >
-              {message}
+              <Markdown remarkPlugins={[remarkGfm]}>{message}</Markdown>
             </p>
           </div>
         ) : (
@@ -41,7 +44,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
               id="promo-chat-assistant-message-display"
               className="inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700"
             >
-              {message}
+              <Markdown remarkPlugins={[remarkGfm]}>{message}</Markdown>
             </p>
           </div>
         );
@@ -57,7 +60,9 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
               id="promo-chat-error-message-display"
               className="inline-block rounded-lg bg-blue-700 px-4 py-2 text-white"
             >
-              {`⚠️ ${responseError} ⚠️`}
+              <Markdown remarkPlugins={[remarkGfm]}>
+                {`⚠️ ${responseError} ⚠️`}
+              </Markdown>
             </p>
           </div>
         ) : null}
