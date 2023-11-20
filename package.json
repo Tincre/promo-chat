@@ -33,7 +33,8 @@
   "jest": {
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
-      "react-markdown": "<rootDir>/node_modules/react-markdown/react-markdown.min.js"
+      "react-markdown": "<rootDir>/mocks/react-markdown.tsx",
+      "remark-*": "<rootDir>/mocks/remark-gfm.ts"
     }
   },
   "peerDependencies": {
