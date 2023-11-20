@@ -18,7 +18,7 @@ import {
   DownloadableCampaignStats,
   DownloadableCampaignMetadataSample,
   CampaignSortedData,
-} from '../lib/types';
+} from '@tincre/promo-types';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
