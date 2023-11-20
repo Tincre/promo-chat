@@ -120,6 +120,7 @@ using tailwindcss, use an `@apply` directive.
 #promo-chat-window-container
 #promo-chat-header-container
 #promo-chat-header-text
+#promo-chat-beta-label
 #promo-chat-close-chat-button
 #promo-chat-close-chat-icon
 #promo-chat-latest-messages
