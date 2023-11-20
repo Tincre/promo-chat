@@ -22,6 +22,7 @@ import {
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
+import { BetaPill } from './BetaPill';
 
 type ChatProps = {
   promoData?:
@@ -228,10 +229,10 @@ export function Chat({
             className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
             id="promo-chat-header-container"
           >
-            <p
-              className="text-lg font-semibold"
-              id="promo-chat-header-text"
-            >{`💬 Chatting with ${agentName}`}</p>
+            <p className="text-lg font-semibold" id="promo-chat-header-text">
+              {`💬 Chatting with ${agentName}`}
+              <BetaPill />
+            </p>
             <button
               id="promo-chat-close-chat-button"
               className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-90"
