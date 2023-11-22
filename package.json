@@ -5,6 +5,7 @@
   "author": "Jason R. Stevens, CFA on behalf of Tincre <jason@tincre.com> (https://tincre.com)",
   "main": "dist/index.js",
   "module": "dist/promo-chat.esm.js",
+  "type": "module",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -37,13 +38,15 @@
       "remark-*": "<rootDir>/mocks/remark-gfm.ts"
     }
   },
+  "dependencies": {
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
+  },
   "peerDependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": ">=2.0",
     "@tincre/promo-types": "^0.0.2",
     "react": ">=16",
-    "react-markdown": "^9.0.1",
-    "remark-gfm": "^4.0.0",
     "tailwindcss": ">=3",
     "yup": ">=0.32"
   },
@@ -79,8 +82,6 @@
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^9.0.1",
-    "remark-gfm": "^4.0.0",
     "size-limit": "^8.1.0",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
