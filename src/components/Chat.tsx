@@ -239,138 +239,233 @@ export function Chat({
         leaveTo="opacity-0"
         onKeyDown={handleCloseChatWindowEscape}
       >
-        <div
-          id="promo-chat-container"
-          className={classNames(
-            !isPromoChatExpandButtonClicked
-              ? 'fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96 z-100'
-              : 'fixed bottom-0 w-screen h-full z-100 p-4'
-          )}
-        >
+        {!isPromoChatExpandButtonClicked ? (
           <div
-            className={classNames(
-              !isPromoChatExpandButtonClicked
-                ? 'w-full max-w-lg rounded-lg bg-white shadow-md'
-                : 'w-full h-full min-w-xl rounded-lg bg-white shadow-md'
-            )}
-            id="promo-chat-window-container"
+            id="promo-chat-container"
+            className="fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96 z-100"
           >
             <div
-              className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
-              id="promo-chat-header-container"
-            >
-              <p className="text-lg font-semibold" id="promo-chat-header-text">
-                {`💬 Chatting with ${agentName}`}
-                <BetaPill supportEmail={supportEmail} />
-              </p>
-              {!isPromoChatExpandButtonClicked ? (
-                <button
-                  id="promo-chat-expand-button"
-                  className=""
-                  tabIndex={5}
-                  onClick={handleChatButtonExpand}
-                >
-                  <ArrowsPointingOutIcon
-                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
-                    id="promo-chat-expand-button-icon"
-                  />
-                </button>
-              ) : (
-                <button
-                  id="promo-chat-shrink-button"
-                  className=""
-                  tabIndex={5}
-                  onClick={handleChatButtonExpand}
-                >
-                  <ArrowsPointingInIcon
-                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
-                    id="promo-chat-shrink-button-icon"
-                  />
-                </button>
-              )}
-              <button
-                id="promo-chat-close-chat-button"
-                className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
-                tabIndex={4}
-                onClick={() => {
-                  setIsPromoChatExpandButtonClicked(false);
-                  setIsPromoChatButtonClicked(false);
-                }}
-              >
-                <XMarkIcon
-                  className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
-                  id="promo-chat-close-chat-icon"
-                />
-              </button>
-            </div>
-            <div
-              className={classNames(
-                !isPromoChatExpandButtonClicked
-                  ? 'h-80 overflow-y-auto p-4'
-                  : 'h-3/4 sm:h-5/6 overflow-y-auto p-4'
-              )}
-              id="promo-chat-latest-messages"
-            >
-              <Messages
-                latestMessages={latestMessages}
-                responseError={responseError}
-              />
-              <div ref={messagesEndRef} />
-            </div>
-            <div
-              className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
-              id="promo-chat-input-container"
+              className="w-full max-w-lg rounded-lg bg-white shadow-md"
+              id="promo-chat-window-container"
             >
               <div
-                className={classNames(
-                  !isPromoChatExpandButtonClicked
-                    ? 'w-full sm:max-w-xs'
-                    : 'w-full sm:w-3/4 xl:w-5/6'
-                )}
-                id="promo-chat-input-only-container"
+                className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
+                id="promo-chat-header-container"
               >
-                <label htmlFor="text-input" className="sr-only">
-                  Text input
-                </label>
-                <input
-                  tabIndex={2}
-                  type="text"
-                  name="text-input"
-                  autoFocus={true}
-                  ref={userInputRef}
-                  id="promo-chat-text-input"
-                  value={latestMessage}
-                  className={classNames(
-                    !isPromoChatExpandButtonClicked
-                      ? 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                      : 'inline-flex w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                  )}
-                  placeholder={
-                    !promoData
-                      ? inputMessagePlaceholder
-                      : inputMessagePlaceholder || 'How are my ads doing today?'
-                  }
-                  onChange={handleInputChange}
-                  onKeyDown={handleInputEnter}
-                />
+                <p
+                  className="text-lg font-semibold"
+                  id="promo-chat-header-text"
+                >
+                  {`💬 Chatting with ${agentName}`}
+                  <BetaPill supportEmail={supportEmail} />
+                </p>
+                {!isPromoChatExpandButtonClicked ? (
+                  <button
+                    id="promo-chat-expand-button"
+                    className=""
+                    tabIndex={5}
+                    onClick={handleChatButtonExpand}
+                  >
+                    <ArrowsPointingOutIcon
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      id="promo-chat-expand-button-icon"
+                    />
+                  </button>
+                ) : (
+                  <button
+                    id="promo-chat-shrink-button"
+                    className=""
+                    tabIndex={5}
+                    onClick={handleChatButtonExpand}
+                  >
+                    <ArrowsPointingInIcon
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      id="promo-chat-shrink-button-icon"
+                    />
+                  </button>
+                )}
+                <button
+                  id="promo-chat-close-chat-button"
+                  className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
+                  tabIndex={4}
+                  onClick={() => {
+                    setIsPromoChatExpandButtonClicked(false);
+                    setIsPromoChatButtonClicked(false);
+                  }}
+                >
+                  <XMarkIcon
+                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                    id="promo-chat-close-chat-icon"
+                  />
+                </button>
               </div>
-              <button
-                tabIndex={3}
-                type="button"
-                ref={submitButtonRef}
-                onClick={handleChatSubmit}
-                className={classNames(
-                  !isPromoChatExpandButtonClicked
-                    ? 'mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-auto sm:flex-row'
-                    : 'mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-1/4 sm:flex-row xl:mx-10 xl:w-1/6'
-                )}
-                id="promo-chat-input-submit-button"
+              <div
+                className="h-80 overflow-y-auto p-4"
+                id="promo-chat-latest-messages"
               >
-                Submit
-              </button>
+                <Messages
+                  latestMessages={latestMessages}
+                  responseError={responseError}
+                />
+                <div ref={messagesEndRef} />
+              </div>
+              <div
+                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
+                id="promo-chat-input-container"
+              >
+                <div
+                  className="w-full sm:max-w-xs"
+                  id="promo-chat-input-only-container"
+                >
+                  <label htmlFor="text-input" className="sr-only">
+                    Text input
+                  </label>
+                  <input
+                    tabIndex={2}
+                    type="text"
+                    name="text-input"
+                    autoFocus={true}
+                    ref={userInputRef}
+                    id="promo-chat-text-input"
+                    value={latestMessage}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    placeholder={
+                      !promoData
+                        ? inputMessagePlaceholder
+                        : inputMessagePlaceholder ||
+                          'How are my ads doing today?'
+                    }
+                    onChange={handleInputChange}
+                    onKeyDown={handleInputEnter}
+                  />
+                </div>
+                <button
+                  tabIndex={3}
+                  type="button"
+                  ref={submitButtonRef}
+                  onClick={handleChatSubmit}
+                  className="mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-auto sm:flex-row"
+                  id="promo-chat-input-submit-button"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div
+            id="promo-chat-container-expanded"
+            className="fixed bottom-0 w-screen h-full z-100 p-4"
+          >
+            <div
+              className="w-full h-full min-w-xl rounded-lg bg-white shadow-md"
+              id="promo-chat-window-container-expanded"
+            >
+              <div
+                className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
+                id="promo-chat-header-container"
+              >
+                <p
+                  className="text-lg font-semibold"
+                  id="promo-chat-header-text"
+                >
+                  {`💬 Chatting with ${agentName}`}
+                  <BetaPill supportEmail={supportEmail} />
+                </p>
+                {!isPromoChatExpandButtonClicked ? (
+                  <button
+                    id="promo-chat-expand-button"
+                    className=""
+                    tabIndex={5}
+                    onClick={handleChatButtonExpand}
+                  >
+                    <ArrowsPointingOutIcon
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      id="promo-chat-expand-button-icon"
+                    />
+                  </button>
+                ) : (
+                  <button
+                    id="promo-chat-shrink-button"
+                    className=""
+                    tabIndex={5}
+                    onClick={handleChatButtonExpand}
+                  >
+                    <ArrowsPointingInIcon
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      id="promo-chat-shrink-button-icon"
+                    />
+                  </button>
+                )}
+                <button
+                  id="promo-chat-close-chat-button"
+                  className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
+                  tabIndex={4}
+                  onClick={() => {
+                    setIsPromoChatExpandButtonClicked(false);
+                    setIsPromoChatButtonClicked(false);
+                  }}
+                >
+                  <XMarkIcon
+                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                    id="promo-chat-close-chat-icon"
+                  />
+                </button>
+              </div>
+              <div
+                className="h-3/4 sm:h-5/6 overflow-y-auto p-4"
+                id="promo-chat-latest-messages-expanded"
+              >
+                <Messages
+                  latestMessages={latestMessages}
+                  responseError={responseError}
+                />
+                <div ref={messagesEndRef} />
+              </div>
+              <div
+                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
+                id="promo-chat-input-container"
+              >
+                <div
+                  className="w-full sm:w-3/4 xl:w-5/6"
+                  id="promo-chat-input-only-container-expanded"
+                >
+                  <label htmlFor="text-input" className="sr-only">
+                    Text input
+                  </label>
+                  <input
+                    tabIndex={2}
+                    type="text"
+                    name="text-input"
+                    autoFocus={true}
+                    ref={userInputRef}
+                    id="promo-chat-text-input-expanded"
+                    value={latestMessage}
+                    className="inline-flex w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                    placeholder={
+                      !promoData
+                        ? inputMessagePlaceholder
+                        : inputMessagePlaceholder ||
+                          'How are my ads doing today?'
+                    }
+                    onChange={handleInputChange}
+                    onKeyDown={handleInputEnter}
+                  />
+                </div>
+                <button
+                  tabIndex={3}
+                  type="button"
+                  ref={submitButtonRef}
+                  onClick={handleChatSubmit}
+                  className="mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-1/4 sm:flex-row xl:mx-10 xl:w-1/6"
+                  id="promo-chat-input-submit-button-expanded"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </Transition>
     </>
   );
