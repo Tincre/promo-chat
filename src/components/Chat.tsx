@@ -20,7 +20,11 @@ import {
   CampaignSortedData,
 } from '@tincre/promo-types';
 import { Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/solid';
+import {
+  XMarkIcon,
+  ArrowsPointingOutIcon,
+  ArrowsPointingInIcon,
+} from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
 import { BetaPill } from './BetaPill';
 
@@ -49,6 +53,8 @@ export function Chat({
   supportEmail = undefined,
 }: ChatProps) {
   const [isPromoChatButtonClicked, setIsPromoChatButtonClicked] =
+    useState(false);
+  const [isPromoChatExpandButtonClicked, setIsPromoChatExpandButtonClicked] =
     useState(false);
   const [latestMessages, setLatestMessages] = useState<MessageType[]>([
     { message: startingAgentMessage, role: 'assistant' },
@@ -235,6 +241,31 @@ export function Chat({
               {`💬 Chatting with ${agentName}`}
               <BetaPill supportEmail={supportEmail} />
             </p>
+            {!isPromoChatExpandButtonClicked ? (
+              <button
+                id="promo-chat-expand-button"
+                className=""
+                tabIndex={5}
+                onClick={() => setIsPromoChatExpandButtonClicked(true)}
+              >
+                <ArrowsPointingOutIcon
+                  className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-90"
+                  id="promo-chat-expand-button-icon"
+                />
+              </button>
+            ) : (
+              <button
+                id="promo-chat-shrink-button"
+                className=""
+                tabIndex={5}
+                onClick={() => setIsPromoChatExpandButtonClicked(false)}
+              >
+                <ArrowsPointingInIcon
+                  className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-90"
+                  id="promo-chat-shrink-button-icon"
+                />
+              </button>
+            )}
             <button
               id="promo-chat-close-chat-button"
               className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-90"
