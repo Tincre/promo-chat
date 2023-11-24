@@ -5,6 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import Markdown from 'markdown-to-jsx';
+import { ReactNode } from 'react';
 
 export type MessagesProps = {
   latestMessages: MessageType[];
@@ -14,7 +15,15 @@ export type MessageType = {
   message: string;
   role: 'assistant' | 'system' | 'user';
 };
-
+type BetterAProps = {
+  children?: ReactNode;
+  className?: string;
+  target?: string;
+  rel?: string;
+};
+function BetterA({ children, ...props }: BetterAProps) {
+  return <a {...props}>{children}</a>;
+}
 export function Messages({ latestMessages, responseError }: MessagesProps) {
   return (
     <>
@@ -30,7 +39,22 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
               id="promo-chat-user-message-display"
               className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
             >
-              <Markdown>{message}</Markdown>
+              <Markdown
+                options={{
+                  overrides: {
+                    a: {
+                      component: BetterA,
+                      props: {
+                        className: 'transition duration-300 hover:delay-300 hover:font-bold',
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                      },
+                    },
+                  },
+                }}
+              >
+                {message}
+              </Markdown>
             </p>
           </div>
         ) : (
@@ -43,7 +67,20 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
               id="promo-chat-assistant-message-display"
               className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700 select-all"
             >
-              <Markdown>{message}</Markdown>
+              <Markdown
+                options={{
+                  overrides: {
+                    a: {
+                      component: BetterA,
+                      props: {
+                        className: 'hover:font-bold',
+                      },
+                    },
+                  },
+                }}
+              >
+                {message}
+              </Markdown>
             </p>
           </div>
         );
@@ -59,7 +96,18 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
               id="promo-chat-error-message-display"
               className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
             >
-              <Markdown>{`⚠️ ${responseError} ⚠️`}</Markdown>
+              <Markdown
+                options={{
+                  overrides: {
+                    a: {
+                      component: BetterA,
+                      props: {
+                        className: 'hover:font-bold',
+                      },
+                    },
+                  },
+                }}
+              >{`⚠️ ${responseError} ⚠️`}</Markdown>
             </p>
           </div>
         ) : null}
