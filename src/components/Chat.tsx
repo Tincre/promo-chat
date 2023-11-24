@@ -216,7 +216,7 @@ export function Chat({
         <button
           id="promo-chat-button-not-clicked"
           tabIndex={1}
-          className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-90"
+          className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-[90]"
           title={`Chat with ${agentName}`}
           onClick={() => {
             setIsPromoChatButtonClicked(true);
@@ -242,7 +242,7 @@ export function Chat({
         {!isPromoChatExpandButtonClicked ? (
           <div
             id="promo-chat-container"
-            className="fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96 z-100"
+            className="fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96 z-[100]"
           >
             <div
               className="w-full max-w-lg rounded-lg bg-white shadow-md"
@@ -267,7 +267,7 @@ export function Chat({
                     onClick={handleChatButtonExpand}
                   >
                     <ArrowsPointingOutIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
                       id="promo-chat-expand-button-icon"
                     />
                   </button>
@@ -279,14 +279,14 @@ export function Chat({
                     onClick={handleChatButtonExpand}
                   >
                     <ArrowsPointingInIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
                       id="promo-chat-shrink-button-icon"
                     />
                   </button>
                 )}
                 <button
                   id="promo-chat-close-chat-button"
-                  className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
+                  className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
                   tabIndex={4}
                   onClick={() => {
                     setIsPromoChatExpandButtonClicked(false);
@@ -294,7 +294,7 @@ export function Chat({
                   }}
                 >
                   <XMarkIcon
-                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
                     id="promo-chat-close-chat-icon"
                   />
                 </button>
@@ -355,7 +355,7 @@ export function Chat({
         ) : (
           <div
             id="promo-chat-container-expanded"
-            className="fixed bottom-0 w-screen h-full z-100 p-4"
+            className="fixed bottom-0 w-screen h-full z-[100] p-4"
           >
             <div
               className="w-full h-full min-w-xl rounded-lg bg-white shadow-md"
@@ -381,7 +381,7 @@ export function Chat({
                       onClick={handleChatButtonExpand}
                     >
                       <ArrowsPointingOutIcon
-                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
                         id="promo-chat-expand-button-icon"
                       />
                     </button>
@@ -393,14 +393,14 @@ export function Chat({
                       onClick={handleChatButtonExpand}
                     >
                       <ArrowsPointingInIcon
-                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100 mr-4"
+                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100] mr-4"
                         id="promo-chat-shrink-button-icon"
                       />
                     </button>
                   )}
                   <button
                     id="promo-chat-close-chat-button"
-                    className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
+                    className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
                     tabIndex={4}
                     onClick={() => {
                       setIsPromoChatExpandButtonClicked(false);
@@ -408,7 +408,7 @@ export function Chat({
                     }}
                   >
                     <XMarkIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
                       id="promo-chat-close-chat-icon"
                     />
                   </button>
