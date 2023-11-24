@@ -30,7 +30,7 @@ const Home: NextPage = () => {
     console.debug(`useEffect::isRepeatButtonClicked::${isRepeatButtonClicked}`);
   }, [isRepeatButtonClicked]);
   return (
-    <div className="dark:bg-slate-900" suppressHydrationWarning={true}>
+    <>
       <Head>
         <title>Promo Chat Demo</title>
         <meta
@@ -39,8 +39,10 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="my-8" id="main">
+      <div
+        className="dark:bg-slate-900 h-screen"
+        suppressHydrationWarning={true}
+      >
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center">
             Welcome to the <a href="https://tincre.dev/promo">Promo Chat</a>{' '}
@@ -56,7 +58,7 @@ const Home: NextPage = () => {
               Read the docs
             </a>
           </p>
-          <p className="py-4">
+          <p className="py-4 h-[70vh]">
             <a
               target="_blank"
               rel="noreferrer noopener"
@@ -73,24 +75,24 @@ const Home: NextPage = () => {
               npm install @tincre/promo-dashboard
             </code>
           </p>
-          <PromoChat
-            executeRecaptcha={executeRecaptcha}
-            supportEmail="support@tincre.dev"
-          />
         </div>
-      </main>
+        <PromoChat
+          executeRecaptcha={executeRecaptcha}
+          supportEmail="support@tincre.dev"
+        />
 
-      <footer className="text-center w-full bottom-0 pb-12">
-        <a
-          href="https://tincre.com"
-          target="_blank"
-          className="hover:text-gray-900 text-gray-700 hover:underline"
-          rel="noreferrer"
-        >
-          Tincre
-        </a>
-      </footer>
-    </div>
+        <footer className="text-center w-full bottom-0 pb-12">
+          <a
+            href="https://tincre.com"
+            target="_blank"
+            className="hover:text-gray-900 text-gray-700 hover:underline"
+            rel="noreferrer"
+          >
+            Tincre
+          </a>
+        </footer>
+      </div>
+    </>
   );
 };
 
