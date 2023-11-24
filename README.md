@@ -120,6 +120,9 @@ A full example:
 Just add the following classes to your tailwindcss or regular css. If
 using tailwindcss, use an `@apply` directive.
 
+Since the chat is expandable you will need to add some customization boilerplate
+for the `*-expanded` ids below.
+
 ```
 #promo-chat-button-not-clicked
 #promo-chat-container
