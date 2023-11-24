@@ -28,7 +28,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
           >
             <p
               id="promo-chat-user-message-display"
-              className="prose inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
+              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
             >
               <Markdown>{message}</Markdown>
             </p>
@@ -41,7 +41,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
           >
             <p
               id="promo-chat-assistant-message-display"
-              className="prose inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700 select-all"
+              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700 select-all"
             >
               <Markdown>{message}</Markdown>
             </p>
@@ -57,7 +57,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
           >
             <p
               id="promo-chat-error-message-display"
-              className="prose inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
+              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
             >
               <Markdown>{`⚠️ ${responseError} ⚠️`}</Markdown>
             </p>
