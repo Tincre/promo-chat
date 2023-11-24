@@ -6,9 +6,15 @@ A chat component for Tincre [Promo](https://tincre.dev/promo). Use it in conjunc
   - [Installation](#installation)
     - [Yarn](#yarn)
     - [Npm](#npm)
+    - [Tailwindcss Setup](#tailwindcss-setup)
     - [Environment variables](#environment-variables)
       - [`.env.local` Example](#envlocal-example)
     - [Usage](#usage)
+      - [Usage example](#usage-example)
+    - [Backend functionality](#backend-functionality)
+    - [Customize styling](#customize-styling)
+      - [Tailwindcss Typography Extras](#tailwindcss-typography-extras)
+    - [Full CSS Customization Example](#full-css-customization-example)
   - [Support](#support)
   - [License](#license)
   - [Development](#development)
@@ -109,7 +115,7 @@ A full example:
 > _Note: `token` above is only used if the `useRecaptcha` property on
 > `PromoChat` component rendering is `true`._
 
-### Customize the look & feel
+### Customize styling
 
 Just add the following classes to your tailwindcss or regular css. If
 using tailwindcss, use an `@apply` directive.
@@ -132,6 +138,28 @@ using tailwindcss, use an `@apply` directive.
 #promo-chat-assistant-message-display
 #promo-chat-error-message-display
 ```
+
+#### Tailwindcss Typography Extras
+
+Blockquotes in the default [@tailwindcss/typography]() component have `"` around
+them. If you'd like to remove those for your chat component, simply extend the
+`typography` directive within your `tailwind.config.js` file. For example:
+
+```js
+      typography: {
+        'quoteless-promo-chat': {
+          css: {
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:first-of-type::after': { content: 'none' },
+          },
+        },
+      },
+
+```
+
+The className `prose-quoteless-promo-chat` will automatically be activated.
+In fact, you can make this blockquote do whatever you'd like and we'll render
+it.
 
 ### Full CSS Customization Example
 
