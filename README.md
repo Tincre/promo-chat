@@ -143,6 +143,9 @@ using tailwindcss, use an `@apply` directive.
 #promo-chat-input-only-container-expanded
 #promo-chat-text-input-expanded
 #promo-chat-input-submit-button-expanded
+#promo-chat-header-container-expanded
+#promo-chat-expand-button-icon
+#promo-chat-shrink-button-icon
 ```
 
 #### Tailwindcss Typography Extras
@@ -234,6 +237,15 @@ of the chat interface and button to your own liking.
 }
 #promo-chat-input-submit-button-expanded {
   @apply mt-3 w-full items-center justify-center rounded-md bg-red-700 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:ml-3 sm:mt-0 sm:w-1/4 sm:flex-row xl:mx-10 xl:w-1/6;
+}
+#promo-chat-header-container-expanded {
+  @apply flex items-center justify-between rounded-t-lg border-b bg-red-800 p-4 text-white;
+}
+#promo-chat-expand-button-icon {
+  @apply h-6 w-6 text-red-50 hover:text-red-200 focus:text-red-200 focus:outline-none z-[90];
+}
+#promo-chat-shrink-button-icon {
+  @apply h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[90] mr-4;
 }
 ```
 
