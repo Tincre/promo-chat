@@ -137,6 +137,12 @@ using tailwindcss, use an `@apply` directive.
 #promo-chat-user-message-display
 #promo-chat-assistant-message-display
 #promo-chat-error-message-display
+#promo-chat-container-expanded
+#promo-chat-window-container-expanded
+#promo-chat-latest-messages-expanded
+#promo-chat-input-only-container-expanded
+#promo-chat-text-input-expanded
+#promo-chat-input-submit-button-expanded
 ```
 
 #### Tailwindcss Typography Extras
@@ -210,6 +216,24 @@ of the chat interface and button to your own liking.
 }
 #promo-chat-assistant-message-display {
   @apply inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700;
+}
+#promo-chat-container-expanded {
+  @apply fixed bottom-0 w-screen h-full z-[90] p-4;
+}
+#promo-chat-window-container-expanded {
+  @apply w-full h-full rounded-lg bg-white shadow-md;
+}
+#promo-chat-latest-messages-expanded {
+  @apply h-3/4 sm:h-5/6 overflow-y-auto p-4;
+}
+#promo-chat-input-only-container-expanded {
+  @apply w-full sm:w-3/4 xl:w-5/6;
+}
+#promo-chat-text-input-expanded {
+  @apply inline-flex w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6;
+}
+#promo-chat-input-submit-button-expanded {
+  @apply mt-3 w-full items-center justify-center rounded-md bg-red-700 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 sm:ml-3 sm:mt-0 sm:w-1/4 sm:flex-row xl:mx-10 xl:w-1/6;
 }
 ```
 
