@@ -363,7 +363,7 @@ export function Chat({
             >
               <div
                 className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
-                id="promo-chat-header-container"
+                id="promo-chat-header-container-expanded"
               >
                 <p
                   className="text-lg font-semibold"
@@ -372,45 +372,47 @@ export function Chat({
                   {`💬 Chatting with ${agentName}`}
                   <BetaPill supportEmail={supportEmail} />
                 </p>
-                {!isPromoChatExpandButtonClicked ? (
+                <span>
+                  {!isPromoChatExpandButtonClicked ? (
+                    <button
+                      id="promo-chat-expand-button"
+                      className=""
+                      tabIndex={5}
+                      onClick={handleChatButtonExpand}
+                    >
+                      <ArrowsPointingOutIcon
+                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
+                        id="promo-chat-expand-button-icon"
+                      />
+                    </button>
+                  ) : (
+                    <button
+                      id="promo-chat-shrink-button"
+                      className=""
+                      tabIndex={5}
+                      onClick={handleChatButtonExpand}
+                    >
+                      <ArrowsPointingInIcon
+                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100 mr-4"
+                        id="promo-chat-shrink-button-icon"
+                      />
+                    </button>
+                  )}
                   <button
-                    id="promo-chat-expand-button"
-                    className=""
-                    tabIndex={5}
-                    onClick={handleChatButtonExpand}
+                    id="promo-chat-close-chat-button"
+                    className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
+                    tabIndex={4}
+                    onClick={() => {
+                      setIsPromoChatExpandButtonClicked(false);
+                      setIsPromoChatButtonClicked(false);
+                    }}
                   >
-                    <ArrowsPointingOutIcon
+                    <XMarkIcon
                       className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
-                      id="promo-chat-expand-button-icon"
+                      id="promo-chat-close-chat-icon"
                     />
                   </button>
-                ) : (
-                  <button
-                    id="promo-chat-shrink-button"
-                    className=""
-                    tabIndex={5}
-                    onClick={handleChatButtonExpand}
-                  >
-                    <ArrowsPointingInIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
-                      id="promo-chat-shrink-button-icon"
-                    />
-                  </button>
-                )}
-                <button
-                  id="promo-chat-close-chat-button"
-                  className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-100"
-                  tabIndex={4}
-                  onClick={() => {
-                    setIsPromoChatExpandButtonClicked(false);
-                    setIsPromoChatButtonClicked(false);
-                  }}
-                >
-                  <XMarkIcon
-                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-100"
-                    id="promo-chat-close-chat-icon"
-                  />
-                </button>
+                </span>
               </div>
               <div
                 className="h-3/4 sm:h-5/6 overflow-y-auto p-4"
