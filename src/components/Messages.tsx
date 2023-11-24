@@ -6,6 +6,7 @@
  */
 import Markdown from 'markdown-to-jsx';
 import { ReactNode } from 'react';
+import { PromoChatA } from './PromoChatA';
 
 export type MessagesProps = {
   latestMessages: MessageType[];
@@ -15,15 +16,7 @@ export type MessageType = {
   message: string;
   role: 'assistant' | 'system' | 'user';
 };
-type BetterAProps = {
-  children?: ReactNode;
-  className?: string;
-  target?: string;
-  rel?: string;
-};
-function BetterA({ children, ...props }: BetterAProps) {
-  return <a {...props}>{children}</a>;
-}
+
 export function Messages({ latestMessages, responseError }: MessagesProps) {
   return (
     <>
@@ -43,9 +36,10 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
                 options={{
                   overrides: {
                     a: {
-                      component: BetterA,
+                      component: PromoChatA,
                       props: {
-                        className: 'transition duration-300 hover:delay-300 hover:font-bold',
+                        className:
+                          'transition duration-300 hover:delay-300 hover:font-bold',
                         target: '_blank',
                         rel: 'noopener noreferrer',
                       },
@@ -71,7 +65,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
                 options={{
                   overrides: {
                     a: {
-                      component: BetterA,
+                      component: PromoChatA,
                       props: {
                         className: 'hover:font-bold',
                       },
@@ -100,7 +94,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
                 options={{
                   overrides: {
                     a: {
-                      component: BetterA,
+                      component: PromoChatA,
                       props: {
                         className: 'hover:font-bold',
                       },
