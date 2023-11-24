@@ -36,6 +36,7 @@
   "peerDependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": ">=2.0",
+    "@tailwindcss/typography": "^0.5.10",
     "@tincre/promo-types": "^0.0.2",
     "markdown-to-jsx": "^7.3.2",
     "react": ">=16",
@@ -60,6 +61,7 @@
     "@heroicons/react": "^2.0.12",
     "@nastyox/rando.js": "^2.0.5",
     "@size-limit/preset-small-lib": "^8.1.0",
+    "@tailwindcss/typography": "^0.5.10",
     "@testing-library/react": "^13.4.0",
     "@tincre/promo-types": "^0.0.2",
     "@tsconfig/create-react-app": "^1.0.2",
