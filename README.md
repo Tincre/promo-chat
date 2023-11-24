@@ -30,13 +30,13 @@ Use your favorite package manager to rock installation of `promo-chat`.
 ### Yarn
 
 ```
-yarn add @tincre/promo-chat@latest @tincre/promo-types@latest # -D if you want this as a dev dep
+yarn add @tincre/promo-chat@latest @tincre/promo-types@latest @tailwindcss/typography markdown-to-jsx # -D if you want this as a dev dep
 ```
 
 ### Npm
 
 ```
-npm install @tincre/promo-chat@latest @tincre/promo-types@latest # --save-dev if you want it as a dev dep
+npm install @tincre/promo-chat@latest @tincre/promo-types@latest @tailwindcss/typography markdown-to-jsx # --save-dev if you want it as a dev dep
 ```
 
 ### Tailwindcss Setup
