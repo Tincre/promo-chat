@@ -31,6 +31,7 @@ import { BetaPill } from './BetaPill';
 import { ChatButton } from './ChatButton';
 import { ChatExpandButton } from './ChatExpandButton';
 import { ChatShrinkButton } from './ChatShrinkButton';
+import { ChatCloseButton } from './ChatCloseButton';
 
 type ChatProps = {
   promoData?:
@@ -202,6 +203,13 @@ export function Chat({
       userInputRef.current?.focus();
     }
   };
+  const handleChatButtonClose = async (
+    event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
+  ) => {
+    setIsPromoChatExpandButtonClicked(false);
+    setIsPromoChatButtonClicked(false);
+  };
+
   const handleChatButtonExpand = async (event: any) => {
     setIsPromoChatExpandButtonClicked(!isPromoChatExpandButtonClicked);
   };
@@ -260,20 +268,9 @@ export function Chat({
                 <ChatExpandButton
                   handleChatButtonExpand={handleChatButtonExpand}
                 />
-                <button
-                  id="promo-chat-close-chat-button"
-                  className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
-                  tabIndex={4}
-                  onClick={() => {
-                    setIsPromoChatExpandButtonClicked(false);
-                    setIsPromoChatButtonClicked(false);
-                  }}
-                >
-                  <XMarkIcon
-                    className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
-                    id="promo-chat-close-chat-icon"
-                  />
-                </button>
+                <ChatCloseButton
+                  handleChatButtonClose={handleChatButtonClose}
+                />
               </div>
               <div
                 className="h-80 overflow-y-auto p-4"
@@ -352,20 +349,9 @@ export function Chat({
                   <ChatShrinkButton
                     handleChatButtonShrink={handleChatButtonExpand}
                   />
-                  <button
-                    id="promo-chat-close-chat-button"
-                    className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
-                    tabIndex={4}
-                    onClick={() => {
-                      setIsPromoChatExpandButtonClicked(false);
-                      setIsPromoChatButtonClicked(false);
-                    }}
-                  >
-                    <XMarkIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
-                      id="promo-chat-close-chat-icon"
-                    />
-                  </button>
+                  <ChatCloseButton
+                    handleChatButtonClose={handleChatButtonClose}
+                  />
                 </span>
               </div>
               <div
