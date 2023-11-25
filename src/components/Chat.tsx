@@ -21,17 +21,8 @@ import {
   CampaignSortedData,
 } from '@tincre/promo-types';
 import { Transition } from '@headlessui/react';
-import {
-  XMarkIcon,
-  ArrowsPointingOutIcon,
-  ArrowsPointingInIcon,
-} from '@heroicons/react/24/solid';
 import { Messages, MessageType } from './Messages';
-import { BetaPill } from './BetaPill';
 import { ChatButton } from './ChatButton';
-import { ChatExpandButton } from './ChatExpandButton';
-import { ChatShrinkButton } from './ChatShrinkButton';
-import { ChatCloseButton } from './ChatCloseButton';
 import { ChatHeader, ChatHeaderExpanded } from './ChatHeader';
 import { SubmitButton } from './SubmitButton';
 
