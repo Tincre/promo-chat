@@ -32,6 +32,7 @@ import { ChatButton } from './ChatButton';
 import { ChatExpandButton } from './ChatExpandButton';
 import { ChatShrinkButton } from './ChatShrinkButton';
 import { ChatCloseButton } from './ChatCloseButton';
+import { SubmitButton } from './SubmitButton';
 
 type ChatProps = {
   promoData?:
@@ -312,16 +313,10 @@ export function Chat({
                     onKeyDown={handleInputEnter}
                   />
                 </div>
-                <button
-                  tabIndex={3}
-                  type="button"
-                  ref={submitButtonRef}
-                  onClick={handleChatSubmit}
-                  className="mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-auto sm:flex-row"
-                  id="promo-chat-input-submit-button"
-                >
-                  Submit
-                </button>
+                <SubmitButton
+                  handleChatSubmit={handleChatSubmit}
+                  submitButtonRef={submitButtonRef}
+                />
               </div>
             </div>
           </div>
@@ -394,16 +389,10 @@ export function Chat({
                     onKeyDown={handleInputEnter}
                   />
                 </div>
-                <button
-                  tabIndex={3}
-                  type="button"
-                  ref={submitButtonRef}
-                  onClick={handleChatSubmit}
-                  className="mt-3 w-full items-center justify-center rounded-md bg-blue-700 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:ml-3 sm:mt-0 sm:w-1/4 sm:flex-row xl:mx-10 xl:w-1/6"
-                  id="promo-chat-input-submit-button-expanded"
-                >
-                  Submit
-                </button>
+                <SubmitButton
+                  handleChatSubmit={handleChatSubmit}
+                  submitButtonRef={submitButtonRef}
+                />
               </div>
             </div>
           </div>
