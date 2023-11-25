@@ -257,15 +257,9 @@ export function Chat({
                   {`💬 Chatting with ${agentName}`}
                   <BetaPill supportEmail={supportEmail} />
                 </p>
-                {!isPromoChatExpandButtonClicked ? (
-                  <ChatExpandButton
-                    handleChatButtonExpand={handleChatButtonExpand}
-                  />
-                ) : (
-                  <ChatShrinkButton
-                    handleChatButtonShrink={handleChatButtonExpand}
-                  />
-                )}
+                <ChatExpandButton
+                  handleChatButtonExpand={handleChatButtonExpand}
+                />
                 <button
                   id="promo-chat-close-chat-button"
                   className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
@@ -355,31 +349,9 @@ export function Chat({
                   <BetaPill supportEmail={supportEmail} />
                 </p>
                 <span>
-                  {!isPromoChatExpandButtonClicked ? (
-                    <button
-                      id="promo-chat-expand-button"
-                      className=""
-                      tabIndex={5}
-                      onClick={handleChatButtonExpand}
-                    >
-                      <ArrowsPointingOutIcon
-                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
-                        id="promo-chat-expand-button-icon"
-                      />
-                    </button>
-                  ) : (
-                    <button
-                      id="promo-chat-shrink-button"
-                      className=""
-                      tabIndex={5}
-                      onClick={handleChatButtonExpand}
-                    >
-                      <ArrowsPointingInIcon
-                        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100] mr-4"
-                        id="promo-chat-shrink-button-icon"
-                      />
-                    </button>
-                  )}
+                  <ChatShrinkButton
+                    handleChatButtonShrink={handleChatButtonExpand}
+                  />
                   <button
                     id="promo-chat-close-chat-button"
                     className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
