@@ -29,6 +29,8 @@ import {
 import { Messages, MessageType } from './Messages';
 import { BetaPill } from './BetaPill';
 import { ChatButton } from './ChatButton';
+import { ChatExpandButton } from './ChatExpandButton';
+import { ChatShrinkButton } from './ChatShrinkButton';
 
 type ChatProps = {
   promoData?:
@@ -256,29 +258,13 @@ export function Chat({
                   <BetaPill supportEmail={supportEmail} />
                 </p>
                 {!isPromoChatExpandButtonClicked ? (
-                  <button
-                    id="promo-chat-expand-button"
-                    className=""
-                    tabIndex={5}
-                    onClick={handleChatButtonExpand}
-                  >
-                    <ArrowsPointingOutIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
-                      id="promo-chat-expand-button-icon"
-                    />
-                  </button>
+                  <ChatExpandButton
+                    handleChatButtonExpand={handleChatButtonExpand}
+                  />
                 ) : (
-                  <button
-                    id="promo-chat-shrink-button"
-                    className=""
-                    tabIndex={5}
-                    onClick={handleChatButtonExpand}
-                  >
-                    <ArrowsPointingInIcon
-                      className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
-                      id="promo-chat-shrink-button-icon"
-                    />
-                  </button>
+                  <ChatShrinkButton
+                    handleChatButtonShrink={handleChatButtonExpand}
+                  />
                 )}
                 <button
                   id="promo-chat-close-chat-button"
