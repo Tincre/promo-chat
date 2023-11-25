@@ -25,6 +25,10 @@ import { Messages, MessageType } from './Messages';
 import { ChatButton } from './ChatButton';
 import { ChatHeader, ChatHeaderExpanded } from './ChatHeader';
 import { SubmitButton } from './SubmitButton';
+import {
+  ChatInputContainer,
+  ChatInputContainerExpanded,
+} from './ChatInputContainer';
 
 type ChatProps = {
   promoData?:
@@ -267,32 +271,17 @@ export function Chat({
                 className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
                 id="promo-chat-input-container"
               >
-                <div
-                  className="w-full sm:max-w-xs"
-                  id="promo-chat-input-only-container"
-                >
-                  <label htmlFor="text-input" className="sr-only">
-                    Text input
-                  </label>
-                  <input
-                    tabIndex={2}
-                    type="text"
-                    name="text-input"
-                    autoFocus={true}
-                    ref={userInputRef}
-                    id="promo-chat-text-input"
-                    value={latestMessage}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    placeholder={
-                      !promoData
-                        ? inputMessagePlaceholder
-                        : inputMessagePlaceholder ||
-                          'How are my ads doing today?'
-                    }
-                    onChange={handleInputChange}
-                    onKeyDown={handleInputEnter}
-                  />
-                </div>
+                <ChatInputContainer
+                  latestMessage={latestMessage}
+                  userInputRef={userInputRef}
+                  inputMessagePlaceholder={
+                    !promoData
+                      ? inputMessagePlaceholder
+                      : inputMessagePlaceholder || 'How are my ads doing today?'
+                  }
+                  handleInputChange={handleInputChange}
+                  handleInputEnter={handleInputEnter}
+                />
                 <SubmitButton
                   handleChatSubmit={handleChatSubmit}
                   submitButtonRef={submitButtonRef}
@@ -330,32 +319,17 @@ export function Chat({
                 className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
                 id="promo-chat-input-container"
               >
-                <div
-                  className="w-full sm:w-3/4 xl:w-5/6"
-                  id="promo-chat-input-only-container-expanded"
-                >
-                  <label htmlFor="text-input" className="sr-only">
-                    Text input
-                  </label>
-                  <input
-                    tabIndex={2}
-                    type="text"
-                    name="text-input"
-                    autoFocus={true}
-                    ref={userInputRef}
-                    id="promo-chat-text-input-expanded"
-                    value={latestMessage}
-                    className="inline-flex w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                    placeholder={
-                      !promoData
-                        ? inputMessagePlaceholder
-                        : inputMessagePlaceholder ||
-                          'How are my ads doing today?'
-                    }
-                    onChange={handleInputChange}
-                    onKeyDown={handleInputEnter}
-                  />
-                </div>
+                <ChatInputContainerExpanded
+                  latestMessage={latestMessage}
+                  userInputRef={userInputRef}
+                  inputMessagePlaceholder={
+                    !promoData
+                      ? inputMessagePlaceholder
+                      : inputMessagePlaceholder || 'How are my ads doing today?'
+                  }
+                  handleInputChange={handleInputChange}
+                  handleInputEnter={handleInputEnter}
+                />
                 <SubmitButton
                   handleChatSubmit={handleChatSubmit}
                   submitButtonRef={submitButtonRef}
