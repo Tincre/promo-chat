@@ -32,6 +32,7 @@ import { ChatButton } from './ChatButton';
 import { ChatExpandButton } from './ChatExpandButton';
 import { ChatShrinkButton } from './ChatShrinkButton';
 import { ChatCloseButton } from './ChatCloseButton';
+import { ChatHeader, ChatHeaderExpanded } from './ChatHeader';
 import { SubmitButton } from './SubmitButton';
 
 type ChatProps = {
@@ -255,24 +256,12 @@ export function Chat({
               className="w-full max-w-lg rounded-lg bg-white shadow-md"
               id="promo-chat-window-container"
             >
-              <div
-                className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
-                id="promo-chat-header-container"
-              >
-                <p
-                  className="text-lg font-semibold"
-                  id="promo-chat-header-text"
-                >
-                  {`💬 Chatting with ${agentName}`}
-                  <BetaPill supportEmail={supportEmail} />
-                </p>
-                <ChatExpandButton
-                  handleChatButtonExpand={handleChatButtonExpand}
-                />
-                <ChatCloseButton
-                  handleChatButtonClose={handleChatButtonClose}
-                />
-              </div>
+              <ChatHeader
+                agentName={agentName}
+                supportEmail={supportEmail}
+                handleChatButtonExpand={handleChatButtonExpand}
+                handleChatButtonClose={handleChatButtonClose}
+              />
               <div
                 className="h-80 overflow-y-auto p-4"
                 id="promo-chat-latest-messages"
@@ -329,26 +318,13 @@ export function Chat({
               className="w-full h-full min-w-xl rounded-lg bg-white shadow-md"
               id="promo-chat-window-container-expanded"
             >
-              <div
-                className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
-                id="promo-chat-header-container-expanded"
-              >
-                <p
-                  className="text-lg font-semibold"
-                  id="promo-chat-header-text"
-                >
-                  {`💬 Chatting with ${agentName}`}
-                  <BetaPill supportEmail={supportEmail} />
-                </p>
-                <span>
-                  <ChatShrinkButton
-                    handleChatButtonShrink={handleChatButtonExpand}
-                  />
-                  <ChatCloseButton
-                    handleChatButtonClose={handleChatButtonClose}
-                  />
-                </span>
-              </div>
+              <ChatHeaderExpanded
+                agentName={agentName}
+                supportEmail={supportEmail}
+                handleChatButtonShrink={handleChatButtonExpand}
+                handleChatButtonClose={handleChatButtonClose}
+              />
+
               <div
                 className="h-3/4 sm:h-5/6 overflow-y-auto p-4"
                 id="promo-chat-latest-messages-expanded"
