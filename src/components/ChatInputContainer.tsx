@@ -21,7 +21,7 @@ export function ChatInputContainerExpanded({
   handleInputEnter,
 }: ChatInputContainerProps) {
   return (
-    <div className="w-full sm:max-w-xs" id="promo-chat-input-only-container">
+    <div className="w-full sm:max-w-md" id="promo-chat-input-only-container">
       <label htmlFor="text-input" className="sr-only">
         Text input
       </label>
@@ -33,7 +33,7 @@ export function ChatInputContainerExpanded({
         ref={userInputRef}
         id="promo-chat-text-input-expanded"
         value={latestMessage}
-        className="inline-flex w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-slate-700 placeholder:text-gray-400 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 dark:focus:ring-slate-600 sm:text-sm sm:leading-6 dark:bg-slate-900"
+        className="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-slate-50 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-slate-700 placeholder:text-gray-400 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 dark:focus:ring-slate-600 sm:text-sm sm:leading-6 dark:bg-slate-900"
         placeholder={inputMessagePlaceholder}
         onChange={handleInputChange}
         onKeyDown={handleInputEnter}
