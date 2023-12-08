@@ -248,7 +248,7 @@ export function Chat({
             className="fixed bottom-0 w-full select-none sm:bottom-6 sm:right-6 sm:w-96 z-[100]"
           >
             <div
-              className="w-full max-w-lg rounded-lg bg-white shadow-md"
+              className="w-full max-w-lg rounded-lg bg-white shadow-md dark:bg-slate-800"
               id="promo-chat-window-container"
             >
               <ChatHeader
@@ -295,7 +295,7 @@ export function Chat({
             className="fixed bottom-0 w-screen h-full z-[100] p-4"
           >
             <div
-              className="w-full h-full min-w-xl rounded-lg bg-white shadow-md"
+              className="w-full h-full min-w-xl rounded-lg bg-white shadow-md dark:bg-slate-800"
               id="promo-chat-window-container-expanded"
             >
               <ChatHeaderExpanded
