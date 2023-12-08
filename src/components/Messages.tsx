@@ -5,7 +5,6 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import Markdown from 'markdown-to-jsx';
-import { ReactNode } from 'react';
 import { PromoChatA } from './PromoChatA';
 
 export type MessagesProps = {
