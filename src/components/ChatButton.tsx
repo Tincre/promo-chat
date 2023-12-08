@@ -30,7 +30,7 @@ export function ChatButton({
     <button
       id="promo-chat-button-not-clicked"
       tabIndex={1}
-      className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-100 dark:text-blue-900 hover:dark:bg-blue-200 z-[90]"
+      className="fixed bottom-10 right-10 flex h-16 w-16 animate-wave items-center justify-center rounded-full bg-blue-900 text-2xl text-slate-50 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-800 hover:shadow-xl dark:bg-blue-700 dark:text-blue-900 hover:dark:bg-blue-600 z-[90]"
       title={`Chat with ${agentName}`}
       onClick={() => {
         setIsPromoChatButtonClicked(true);
