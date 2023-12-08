@@ -44,7 +44,9 @@ export function ChatHeaderExpanded({
         <BetaPill supportEmail={supportEmail} />
       </p>
       <span className="pt-1">
-        <ChatShrinkButton handleChatButtonShrink={handleChatButtonShrink} />
+        <span className="mr-2">
+          <ChatShrinkButton handleChatButtonShrink={handleChatButtonShrink} />
+        </span>
         <ChatCloseButton handleChatButtonClose={handleChatButtonClose} />
       </span>
     </div>
@@ -67,7 +69,9 @@ export function ChatHeader({
         <BetaPill supportEmail={supportEmail} />
       </p>
       <span className="">
-        <ChatExpandButton handleChatButtonExpand={handleChatButtonExpand} />
+        <span className="mr-2">
+          <ChatExpandButton handleChatButtonExpand={handleChatButtonExpand} />
+        </span>
         <ChatCloseButton handleChatButtonClose={handleChatButtonClose} />
       </span>
     </div>
