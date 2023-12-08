@@ -29,7 +29,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
           >
             <p
               id="promo-chat-user-message-display"
-              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
+              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 dark:bg-blue-800 px-4 py-2 text-white select-all"
             >
               <Markdown
                 options={{
@@ -58,7 +58,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
           >
             <p
               id="promo-chat-assistant-message-display"
-              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-gray-200 px-4 py-2 text-gray-700 select-all"
+              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-gray-200 dark:bg-slate-700 px-4 py-2 text-gray-700 dark:text-slate-50 select-all"
             >
               <Markdown
                 options={{
@@ -87,7 +87,7 @@ export function Messages({ latestMessages, responseError }: MessagesProps) {
           >
             <p
               id="promo-chat-error-message-display"
-              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 px-4 py-2 text-white select-all"
+              className="prose prose-quoteless-promo-chat inline-block rounded-lg bg-blue-700 dark:bg-slate-600 px-4 py-2 text-white select-all"
             >
               <Markdown
                 options={{
