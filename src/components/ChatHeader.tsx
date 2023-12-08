@@ -36,14 +36,14 @@ export function ChatHeaderExpanded({
 }: ChatHeaderExpandedProps) {
   return (
     <div
-      className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
+      className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white content-center"
       id="promo-chat-header-container-expanded"
     >
-      <p className="text-lg font-semibold" id="promo-chat-header-text">
+      <p className="text-lg font-semibold pb-2" id="promo-chat-header-text">
         {`💬 Chatting with ${agentName}`}
         <BetaPill supportEmail={supportEmail} />
       </p>
-      <span>
+      <span className="pt-1">
         <ChatShrinkButton handleChatButtonShrink={handleChatButtonShrink} />
         <ChatCloseButton handleChatButtonClose={handleChatButtonClose} />
       </span>
@@ -59,15 +59,17 @@ export function ChatHeader({
 }: ChatHeaderProps) {
   return (
     <div
-      className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white"
+      className="flex items-center justify-between rounded-t-lg border-b bg-blue-800 p-4 text-white text-center content-center"
       id="promo-chat-header-container"
     >
-      <p className="text-lg font-semibold" id="promo-chat-header-text">
+      <p className="text-lg font-semibold pb-2" id="promo-chat-header-text">
         {`💬 Chatting with ${agentName}`}
         <BetaPill supportEmail={supportEmail} />
       </p>
-      <ChatExpandButton handleChatButtonExpand={handleChatButtonExpand} />
-      <ChatCloseButton handleChatButtonClose={handleChatButtonClose} />
+      <span className="">
+        <ChatExpandButton handleChatButtonExpand={handleChatButtonExpand} />
+        <ChatCloseButton handleChatButtonClose={handleChatButtonClose} />
+      </span>
     </div>
   );
 }
