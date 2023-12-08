@@ -21,7 +21,7 @@ export function ChatInputContainerExpanded({
   handleInputEnter,
 }: ChatInputContainerProps) {
   return (
-    <div className="w-full sm:max-w-md" id="promo-chat-input-only-container">
+    <div className="w-full" id="promo-chat-input-only-container">
       <label htmlFor="text-input" className="sr-only">
         Text input
       </label>
