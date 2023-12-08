@@ -268,7 +268,7 @@ export function Chat({
                 <div ref={messagesEndRef} />
               </div>
               <div
-                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
+                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row dark:border-slate-600"
                 id="promo-chat-input-container"
               >
                 <ChatInputContainer
@@ -316,7 +316,7 @@ export function Chat({
                 <div ref={messagesEndRef} />
               </div>
               <div
-                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row"
+                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row dark:border-slate-600"
                 id="promo-chat-input-container"
               >
                 <ChatInputContainerExpanded
