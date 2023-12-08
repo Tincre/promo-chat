@@ -18,12 +18,12 @@ export function ChatExpandButton({
   return (
     <button
       id="promo-chat-expand-button"
-      className=""
+      className="my-auto text-center pt-1"
       tabIndex={5}
       onClick={handleChatButtonExpand}
     >
       <ArrowsPointingOutIcon
-        className="h-6 w-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
+        className="h-6 h-6 text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-none z-[100]"
         id="promo-chat-expand-button-icon"
       />
     </button>

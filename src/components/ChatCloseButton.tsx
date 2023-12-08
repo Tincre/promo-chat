@@ -18,7 +18,7 @@ export function ChatCloseButton({
   return (
     <button
       id="promo-chat-close-chat-button"
-      className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100]"
+      className="text-blue-50 hover:text-blue-200 focus:text-blue-200 focus:outline-blue-200 focus:ring-2 focus:ring-inset focus:ring-blue-200 z-[100] my-auto text-center"
       tabIndex={4}
       onClick={handleChatButtonClose}
     >
