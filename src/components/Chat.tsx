@@ -295,7 +295,7 @@ export function Chat({
             className="fixed bottom-0 w-screen h-full z-[100] p-4"
           >
             <div
-              className="w-full h-full min-w-xl rounded-lg bg-white shadow-md dark:bg-slate-800"
+              className="w-full min-w-xl h-full rounded-lg bg-white shadow-md dark:bg-slate-800 relative"
               id="promo-chat-window-container-expanded"
             >
               <ChatHeaderExpanded
@@ -305,10 +305,7 @@ export function Chat({
                 handleChatButtonClose={handleChatButtonClose}
               />
 
-              <div
-                className="h-3/4 sm:h-5/6 overflow-y-auto p-4"
-                id="promo-chat-latest-messages-expanded"
-              >
+              <div className="p-2" id="promo-chat-latest-messages-expanded">
                 <Messages
                   latestMessages={latestMessages}
                   responseError={responseError}
@@ -316,7 +313,7 @@ export function Chat({
                 <div ref={messagesEndRef} />
               </div>
               <div
-                className="flex flex-col items-center border-t px-3 py-4 sm:flex-row dark:border-slate-600"
+                className="absolute flex flex-col sm:flex-row items-center border-t px-3 py-4 dark:border-slate-600 inset-x-0 bottom-0"
                 id="promo-chat-input-container"
               >
                 <ChatInputContainerExpanded
