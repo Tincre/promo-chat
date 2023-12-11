@@ -305,7 +305,10 @@ export function Chat({
                 handleChatButtonClose={handleChatButtonClose}
               />
 
-              <div className="p-2" id="promo-chat-latest-messages-expanded">
+              <div
+                className="p-2 overflow-y-auto"
+                id="promo-chat-latest-messages-expanded"
+              >
                 <Messages
                   latestMessages={latestMessages}
                   responseError={responseError}
@@ -314,7 +317,7 @@ export function Chat({
               </div>
               <div
                 className="absolute flex flex-col sm:flex-row items-center border-t px-3 py-4 dark:border-slate-600 inset-x-0 bottom-0"
-                id="promo-chat-input-container"
+                id="promo-chat-input-container-expanded"
               >
                 <ChatInputContainerExpanded
                   latestMessage={latestMessage}
