@@ -34,11 +34,11 @@
     "testEnvironment": "jsdom"
   },
   "peerDependencies": {
-    "@headlessui/react": "^1.7.17",
+    "@headlessui/react": ">=1.7.17",
     "@heroicons/react": ">=2.0",
-    "@tailwindcss/typography": "^0.5.10",
-    "@tincre/promo-types": "^0.0.2",
-    "markdown-to-jsx": "^7.3.2",
+    "@tailwindcss/typography": ">=0.5",
+    "@tincre/promo-types": ">=0.0.2",
+    "markdown-to-jsx": ">=7.3.2",
     "react": ">=16",
     "tailwindcss": ">=3",
     "yup": ">=0.32"
